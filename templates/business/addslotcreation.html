@@ -1,0 +1,44 @@
+{% extends 'business/business_home.html' %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+{#    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">#}
+   
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center">Add Slots</h2>
+                <form action="/myapp/add_slotcreation_post/" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="id" value="{{ id }}">
+
+                      <div class="form-group">
+                        <label for="username">From Time</label>
+                        <input type="time" class="form-control" name="from_time" id="username"  required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">To Time</label>
+                        <input type="time" class="form-control" name="to_time" id="username"  required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Add</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+{% endblock %}

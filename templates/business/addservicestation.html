@@ -1,0 +1,772 @@
+{#{% extends 'business/business_home.html' %}#}
+{#{% block body %}#}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>Login Page</title>#}
+{#    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">#}
+{#   #}
+{#</head>#}
+{#<body>#}
+{#    <div class="container">#}
+{#        <div class="row justify-content-center">#}
+{#            <div class="col-md-6">#}
+{#                <h2 class="text-center">Add Service Station</h2>#}
+{#                <form action="/myapp/add_servicestation_post/" method="post" enctype="multipart/form-data">#}
+{#                    {% csrf_token %}#}
+{#                    <div class="form-group">#}
+{#                        <label for="username">Station Name</label>#}
+{#                        <input type="text" class="form-control" name="name" id="username"  required>#}
+{#                    </div>#}
+{##}
+{#                      <div class="form-group">#}
+{#                        <label for="username">E-mail</label>#}
+{#                        <input type="email" class="form-control" name="email" id="username"  required>#}
+{#                    </div>#}
+{##}
+{#                      <div class="form-group">#}
+{#                        <label for="username">Mobile Number</label>#}
+{#                        <input type="number" class="form-control" name="mobile_number" id="username"  required>#}
+{#                    </div>#}
+{##}
+{#                      <div class="form-group">#}
+{#                        <label for="username">City</label>#}
+{#                        <input type="text" class="form-control" name="city" id="username"  required>#}
+{#                    </div>#}
+{##}
+{#                      <div class="form-group">#}
+{#                        <label for="username">State</label>#}
+{#                        <input type="text" class="form-control" name="state" id="username"  required>#}
+{#                    </div>#}
+{##}
+{#                      <div class="form-group">#}
+{#                        <label for="username">Latitude</label>#}
+{#                        <input type="text" class="form-control" name="latitude" id="username">#}
+{#                    </div>#}
+{##}
+{#                      <div class="form-group">#}
+{#                        <label for="username">Longitude</label>#}
+{#                        <input type="text" class="form-control" name="longitude" id="username">#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group">#}
+{#                        <label for="text">Photo</label>#}
+{#                        <input type="file" class="form-control" name="photo" id="password"  required>#}
+{#                    </div>#}
+{##}
+{#                    <button type="submit" class="btn btn-primary btn-block">Add</button>#}
+{#                </form>#}
+{##}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>#}
+{#    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>#}
+{#    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>#}
+{#</body>#}
+{#</html>#}
+{##}
+{#{% endblock %}#}
+
+
+
+{#-------with validation#--------}#}
+
+
+
+{#{% extends 'business/business_home.html' %}#}
+{#{% block body %}#}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>Add Service Station</title>#}
+{#    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">#}
+{##}
+{#    <style>#}
+{#        .error-text { color: #dc3545; font-size: 0.9rem; margin-top: 6px; display: none; }#}
+{#        .is-invalid { border-color: #dc3545 !important; }#}
+{#        .is-valid { border-color: #28a745 !important; }#}
+{#    </style>#}
+{#</head>#}
+{#<body>#}
+{#<div class="container">#}
+{#    <div class="row justify-content-center">#}
+{#        <div class="col-md-6">#}
+{#            <h2 class="text-center">Add Service Station</h2>#}
+{##}
+{#            <form id="stationForm" action="/myapp/add_servicestation_post/" method="post" enctype="multipart/form-data" novalidate>#}
+{#                {% csrf_token %}#}
+{##}
+{#                <div class="form-group">#}
+{#                    <label for="stationName">Station Name</label>#}
+{#                    <input type="text" class="form-control" name="name" id="stationName" required>#}
+{#                    <div id="nameError" class="error-text"></div>#}
+{#                </div>#}
+{##}
+{#                <div class="form-group">#}
+{#                    <label for="email">E-mail</label>#}
+{#                    <input type="email" class="form-control" name="email" id="email" required>#}
+{#                    <div id="emailError" class="error-text"></div>#}
+{#                </div>#}
+{##}
+{#                <div class="form-group">#}
+{#                    <label for="mobile">Mobile Number</label>#}
+{#                    <input type="text" class="form-control" name="mobile_number" id="mobile" required>#}
+{#                    <div id="mobileError" class="error-text"></div>#}
+{#                </div>#}
+{##}
+{#                <div class="form-group">#}
+{#                    <label for="city">City</label>#}
+{#                    <input type="text" class="form-control" name="city" id="city" required>#}
+{#                    <div id="cityError" class="error-text"></div>#}
+{#                </div>#}
+{##}
+{#                <div class="form-group">#}
+{#                    <label for="state">State</label>#}
+{#                    <input type="text" class="form-control" name="state" id="state" required>#}
+{#                    <div id="stateError" class="error-text"></div>#}
+{#                </div>#}
+{##}
+{#                <!-- NOW REQUIRED -->#}
+{#                <div class="form-group">#}
+{#                    <label for="latitude">Latitude</label>#}
+{#                    <input type="text" class="form-control" name="latitude" id="latitude" placeholder="e.g. 10.123456" required>#}
+{#                    <div id="latError" class="error-text"></div>#}
+{#                </div>#}
+{##}
+{#                <!-- NOW REQUIRED -->#}
+{#                <div class="form-group">#}
+{#                    <label for="longitude">Longitude</label>#}
+{#                    <input type="text" class="form-control" name="longitude" id="longitude" placeholder="e.g. 76.123456" required>#}
+{#                    <div id="lngError" class="error-text"></div>#}
+{#                </div>#}
+{##}
+{#                <div class="form-group">#}
+{#                    <label for="photo">Photo</label>#}
+{#                    <input type="file" class="form-control" name="photo" id="photo" accept="image/*" required>#}
+{#                    <div id="photoError" class="error-text"></div>#}
+{#                </div>#}
+{##}
+{#                <button type="submit" class="btn btn-primary btn-block">Add</button>#}
+{#            </form>#}
+{##}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#<script>#}
+{#    (function () {#}
+{#        const form = document.getElementById('stationForm');#}
+{##}
+{#        const stationName = document.getElementById('stationName');#}
+{#        const email = document.getElementById('email');#}
+{#        const mobile = document.getElementById('mobile');#}
+{#        const city = document.getElementById('city');#}
+{#        const state = document.getElementById('state');#}
+{#        const latitude = document.getElementById('latitude');#}
+{#        const longitude = document.getElementById('longitude');#}
+{#        const photo = document.getElementById('photo');#}
+{##}
+{#        const nameError = document.getElementById('nameError');#}
+{#        const emailError = document.getElementById('emailError');#}
+{#        const mobileError = document.getElementById('mobileError');#}
+{#        const cityError = document.getElementById('cityError');#}
+{#        const stateError = document.getElementById('stateError');#}
+{#        const latError = document.getElementById('latError');#}
+{#        const lngError = document.getElementById('lngError');#}
+{#        const photoError = document.getElementById('photoError');#}
+{##}
+{#        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;#}
+{#        const phoneRegex = /^(?:\+?91[\s-]?)?[6-9]\d{9}$/; // India: 10 digits, optional +91#}
+{#        const coordRegex = /^-?\d+(\.\d+)?$/;#}
+{##}
+{#        function showError(input, errorEl, message) {#}
+{#            errorEl.textContent = message;#}
+{#            errorEl.style.display = 'block';#}
+{#            input.classList.add('is-invalid');#}
+{#            input.classList.remove('is-valid');#}
+{#        }#}
+{##}
+{#        function showValid(input, errorEl) {#}
+{#            errorEl.textContent = '';#}
+{#            errorEl.style.display = 'none';#}
+{#            input.classList.remove('is-invalid');#}
+{#            input.classList.add('is-valid');#}
+{#        }#}
+{##}
+{#        function clearState(input, errorEl) {#}
+{#            errorEl.textContent = '';#}
+{#            errorEl.style.display = 'none';#}
+{#            input.classList.remove('is-invalid');#}
+{#            input.classList.remove('is-valid');#}
+{#        }#}
+{##}
+{#        function validateName() {#}
+{#            const v = (stationName.value || '').trim();#}
+{#            if (!v) { showError(stationName, nameError, 'Station name is required.'); return false; }#}
+{#            if (v.length < 2) { showError(stationName, nameError, 'Station name must be at least 2 characters.'); return false; }#}
+{#            showValid(stationName, nameError);#}
+{#            return true;#}
+{#        }#}
+{##}
+{#        function validateEmail() {#}
+{#            const v = (email.value || '').trim();#}
+{#            if (!v) { showError(email, emailError, 'Email is required.'); return false; }#}
+{#            if (!emailRegex.test(v)) { showError(email, emailError, 'Please enter a valid email address.'); return false; }#}
+{#            showValid(email, emailError);#}
+{#            return true;#}
+{#        }#}
+{##}
+{#        function normalizePhone(raw) {#}
+{#            return (raw || '').replace(/\s|-/g, '');#}
+{#        }#}
+{##}
+{#        function validateMobile() {#}
+{#            const raw = (mobile.value || '').trim();#}
+{#            if (!raw) { showError(mobile, mobileError, 'Mobile number is required.'); return false; }#}
+{#            const v = normalizePhone(raw);#}
+{#            if (!phoneRegex.test(v)) { showError(mobile, mobileError, 'Enter a valid mobile number (10 digits or +91).'); return false; }#}
+{#            showValid(mobile, mobileError);#}
+{#            return true;#}
+{#        }#}
+{##}
+{#        function validateCity() {#}
+{#            const v = (city.value || '').trim();#}
+{#            if (!v) { showError(city, cityError, 'City is required.'); return false; }#}
+{#            if (v.length < 2) { showError(city, cityError, 'City must be at least 2 characters.'); return false; }#}
+{#            showValid(city, cityError);#}
+{#            return true;#}
+{#        }#}
+{##}
+{#        function validateState() {#}
+{#            const v = (state.value || '').trim();#}
+{#            if (!v) { showError(state, stateError, 'State is required.'); return false; }#}
+{#            if (v.length < 2) { showError(state, stateError, 'State must be at least 2 characters.'); return false; }#}
+{#            showValid(state, stateError);#}
+{#            return true;#}
+{#        }#}
+{##}
+{#        // NOW REQUIRED#}
+{#        function validateLatitude() {#}
+{#            const raw = (latitude.value || '').trim();#}
+{#            if (!raw) { showError(latitude, latError, 'Latitude is required.'); return false; }#}
+{#            if (!coordRegex.test(raw)) { showError(latitude, latError, 'Latitude must be a valid number.'); return false; }#}
+{#            const val = parseFloat(raw);#}
+{#            if (val < -90 || val > 90) { showError(latitude, latError, 'Latitude must be between -90 and 90.'); return false; }#}
+{#            showValid(latitude, latError);#}
+{#            return true;#}
+{#        }#}
+{##}
+{#        // NOW REQUIRED#}
+{#        function validateLongitude() {#}
+{#            const raw = (longitude.value || '').trim();#}
+{#            if (!raw) { showError(longitude, lngError, 'Longitude is required.'); return false; }#}
+{#            if (!coordRegex.test(raw)) { showError(longitude, lngError, 'Longitude must be a valid number.'); return false; }#}
+{#            const val = parseFloat(raw);#}
+{#            if (val < -180 || val > 180) { showError(longitude, lngError, 'Longitude must be between -180 and 180.'); return false; }#}
+{#            showValid(longitude, lngError);#}
+{#            return true;#}
+{#        }#}
+{##}
+{#        function validatePhoto() {#}
+{#            if (!photo.files || photo.files.length === 0) {#}
+{#                showError(photo, photoError, 'Photo is required.');#}
+{#                return false;#}
+{#            }#}
+{#            const file = photo.files[0];#}
+{#            if (!file.type.startsWith('image/')) {#}
+{#                showError(photo, photoError, 'Please upload a valid image file.');#}
+{#                return false;#}
+{#            }#}
+{#            showValid(photo, photoError);#}
+{#            return true;#}
+{#        }#}
+{##}
+{#        // Live validation#}
+{#        stationName.addEventListener('input', () => {#}
+{#            if (!stationName.value) clearState(stationName, nameError);#}
+{#            else validateName();#}
+{#        });#}
+{##}
+{#        email.addEventListener('input', () => {#}
+{#            if (!email.value) clearState(email, emailError);#}
+{#            else validateEmail();#}
+{#        });#}
+{##}
+{#        mobile.addEventListener('input', () => {#}
+{#            mobile.value = mobile.value.replace(/[^0-9+\s-]/g, '');#}
+{#            if (!mobile.value) clearState(mobile, mobileError);#}
+{#            else validateMobile();#}
+{#        });#}
+{##}
+{#        city.addEventListener('input', () => {#}
+{#            if (!city.value) clearState(city, cityError);#}
+{#            else validateCity();#}
+{#        });#}
+{##}
+{#        state.addEventListener('input', () => {#}
+{#            if (!state.value) clearState(state, stateError);#}
+{#            else validateState();#}
+{#        });#}
+{##}
+{#        latitude.addEventListener('input', () => {#}
+{#            latitude.value = latitude.value.replace(/[^0-9.\-]/g, '');#}
+{#            if (!latitude.value) clearState(latitude, latError);#}
+{#            else validateLatitude();#}
+{#        });#}
+{##}
+{#        longitude.addEventListener('input', () => {#}
+{#            longitude.value = longitude.value.replace(/[^0-9.\-]/g, '');#}
+{#            if (!longitude.value) clearState(longitude, lngError);#}
+{#            else validateLongitude();#}
+{#        });#}
+{##}
+{#        photo.addEventListener('change', validatePhoto);#}
+{##}
+{#        // Submit validation (ALL FIELDS REQUIRED)#}
+{#        form.addEventListener('submit', function (e) {#}
+{#            const ok =#}
+{#                validateName() &&#}
+{#                validateEmail() &&#}
+{#                validateMobile() &&#}
+{#                validateCity() &&#}
+{#                validateState() &&#}
+{#                validateLatitude() &&#}
+{#                validateLongitude() &&#}
+{#                validatePhoto();#}
+{##}
+{#            if (!ok) e.preventDefault();#}
+{#        });#}
+{#    })();#}
+{#</script>#}
+{##}
+{#<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>#}
+{#<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>#}
+{#<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>#}
+{#</body>#}
+{#</html>#}
+{##}
+{#{% endblock %}#}
+
+
+
+{#------------with Google Map----------------#}
+
+
+{% extends 'business/business_home.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Service Station</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        .error-text { color: #dc3545; font-size: 0.9rem; margin-top: 6px; display: none; }
+        .is-invalid { border-color: #dc3545 !important; }
+        .is-valid { border-color: #28a745 !important; }
+
+        /* Map box */
+        #mapBox {
+            width: 100%;
+            height: 320px;
+            border: 1px solid rgba(0,0,0,0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 10px;
+            background: #f8f9fa;
+        }
+        .map-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        .map-note {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center">Add Service Station</h2>
+
+            <form id="stationForm" action="/myapp/add_servicestation_post/" method="post" enctype="multipart/form-data" novalidate>
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="stationName">Station Name</label>
+                    <input type="text" class="form-control" name="name" id="stationName" required>
+                    <div id="nameError" class="error-text"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" class="form-control" name="email" id="email" required>
+                    <div id="emailError" class="error-text"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile">Mobile Number</label>
+                    <input type="text" class="form-control" name="mobile_number" id="mobile" required>
+                    <div id="mobileError" class="error-text"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" name="city" id="city" required>
+                    <div id="cityError" class="error-text"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <input type="text" class="form-control" name="state" id="state" required>
+                    <div id="stateError" class="error-text"></div>
+                </div>
+
+                <!-- MAP PICKER (NO API KEY) -->
+                <div class="form-group">
+                    <label>Choose Location (Map)</label>
+
+                    <div class="map-actions">
+                        <button type="button" class="btn btn-outline-primary btn-sm" id="useMyLocationBtn">
+                            Use My Current Location
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" id="refreshMapBtn">
+                            Refresh Map Preview
+                        </button>
+                    </div>
+
+                    <div class="map-note">
+                        Tip: Use “Use My Current Location” to auto-fill Latitude & Longitude.
+                        You can also paste coordinates below manually if you want.
+                    </div>
+
+                    <div id="mapBox">
+                        <!-- OpenStreetMap embed (updated by JS) -->
+                        <iframe
+                            id="osmFrame"
+                            width="100%"
+                            height="100%"
+                            frameborder="0"
+                            scrolling="no"
+                            marginheight="0"
+                            marginwidth="0"
+                            src=""
+                            style="border:0;">
+                        </iframe>
+                    </div>
+
+                    <div id="mapError" class="error-text"></div>
+                </div>
+
+                <!-- NOW REQUIRED -->
+                <div class="form-group">
+                    <label for="latitude">Latitude</label>
+                    <input type="text" class="form-control" name="latitude" id="latitude" placeholder="e.g. 10.123456" required>
+                    <div id="latError" class="error-text"></div>
+                </div>
+
+                <!-- NOW REQUIRED -->
+                <div class="form-group">
+                    <label for="longitude">Longitude</label>
+                    <input type="text" class="form-control" name="longitude" id="longitude" placeholder="e.g. 76.123456" required>
+                    <div id="lngError" class="error-text"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="photo">Photo</label>
+                    <input type="file" class="form-control" name="photo" id="photo" accept="image/*" required>
+                    <div id="photoError" class="error-text"></div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Add</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script>
+(function () {
+    const form = document.getElementById('stationForm');
+
+    const stationName = document.getElementById('stationName');
+    const email = document.getElementById('email');
+    const mobile = document.getElementById('mobile');
+    const city = document.getElementById('city');
+    const state = document.getElementById('state');
+    const latitude = document.getElementById('latitude');
+    const longitude = document.getElementById('longitude');
+    const photo = document.getElementById('photo');
+
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const mobileError = document.getElementById('mobileError');
+    const cityError = document.getElementById('cityError');
+    const stateError = document.getElementById('stateError');
+    const latError = document.getElementById('latError');
+    const lngError = document.getElementById('lngError');
+    const photoError = document.getElementById('photoError');
+
+    // Map elements
+    const osmFrame = document.getElementById('osmFrame');
+    const mapError = document.getElementById('mapError');
+    const useMyLocationBtn = document.getElementById('useMyLocationBtn');
+    const refreshMapBtn = document.getElementById('refreshMapBtn');
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^(?:\+?91[\s-]?)?[6-9]\d{9}$/; // India: 10 digits, optional +91
+    const coordRegex = /^-?\d+(\.\d+)?$/;
+
+    function showError(input, errorEl, message) {
+        errorEl.textContent = message;
+        errorEl.style.display = 'block';
+        if (input) {
+            input.classList.add('is-invalid');
+            input.classList.remove('is-valid');
+        }
+    }
+
+    function showValid(input, errorEl) {
+        errorEl.textContent = '';
+        errorEl.style.display = 'none';
+        input.classList.remove('is-invalid');
+        input.classList.add('is-valid');
+    }
+
+    function clearState(input, errorEl) {
+        errorEl.textContent = '';
+        errorEl.style.display = 'none';
+        input.classList.remove('is-invalid');
+        input.classList.remove('is-valid');
+    }
+
+    function validateName() {
+        const v = (stationName.value || '').trim();
+        if (!v) { showError(stationName, nameError, 'Station name is required.'); return false; }
+        if (v.length < 2) { showError(stationName, nameError, 'Station name must be at least 2 characters.'); return false; }
+        showValid(stationName, nameError);
+        return true;
+    }
+
+    function validateEmail() {
+        const v = (email.value || '').trim();
+        if (!v) { showError(email, emailError, 'Email is required.'); return false; }
+        if (!emailRegex.test(v)) { showError(email, emailError, 'Please enter a valid email address.'); return false; }
+        showValid(email, emailError);
+        return true;
+    }
+
+    function normalizePhone(raw) {
+        return (raw || '').replace(/\s|-/g, '');
+    }
+
+    function validateMobile() {
+        const raw = (mobile.value || '').trim();
+        if (!raw) { showError(mobile, mobileError, 'Mobile number is required.'); return false; }
+        const v = normalizePhone(raw);
+        if (!phoneRegex.test(v)) { showError(mobile, mobileError, 'Enter a valid mobile number (10 digits or +91).'); return false; }
+        showValid(mobile, mobileError);
+        return true;
+    }
+
+    function validateCity() {
+        const v = (city.value || '').trim();
+        if (!v) { showError(city, cityError, 'City is required.'); return false; }
+        if (v.length < 2) { showError(city, cityError, 'City must be at least 2 characters.'); return false; }
+        showValid(city, cityError);
+        return true;
+    }
+
+    function validateState() {
+        const v = (state.value || '').trim();
+        if (!v) { showError(state, stateError, 'State is required.'); return false; }
+        if (v.length < 2) { showError(state, stateError, 'State must be at least 2 characters.'); return false; }
+        showValid(state, stateError);
+        return true;
+    }
+
+    function validateLatitude() {
+        const raw = (latitude.value || '').trim();
+        if (!raw) { showError(latitude, latError, 'Latitude is required.'); return false; }
+        if (!coordRegex.test(raw)) { showError(latitude, latError, 'Latitude must be a valid number.'); return false; }
+        const val = parseFloat(raw);
+        if (val < -90 || val > 90) { showError(latitude, latError, 'Latitude must be between -90 and 90.'); return false; }
+        showValid(latitude, latError);
+        return true;
+    }
+
+    function validateLongitude() {
+        const raw = (longitude.value || '').trim();
+        if (!raw) { showError(longitude, lngError, 'Longitude is required.'); return false; }
+        if (!coordRegex.test(raw)) { showError(longitude, lngError, 'Longitude must be a valid number.'); return false; }
+        const val = parseFloat(raw);
+        if (val < -180 || val > 180) { showError(longitude, lngError, 'Longitude must be between -180 and 180.'); return false; }
+        showValid(longitude, lngError);
+        return true;
+    }
+
+    function validatePhoto() {
+        if (!photo.files || photo.files.length === 0) {
+            showError(photo, photoError, 'Photo is required.');
+            return false;
+        }
+        const file = photo.files[0];
+        if (!file.type.startsWith('image/')) {
+            showError(photo, photoError, 'Please upload a valid image file.');
+            return false;
+        }
+        showValid(photo, photoError);
+        return true;
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // MAP: OpenStreetMap embed + "Use My Location" fills lat/lng
+    // ─────────────────────────────────────────────────────────────
+    function updateMapPreview(lat, lng) {
+        // if invalid, don't update
+        if (typeof lat !== 'number' || typeof lng !== 'number' || isNaN(lat) || isNaN(lng)) return;
+
+        // small bounding box around the point
+        const delta = 0.01;
+        const left = (lng - delta).toFixed(6);
+        const right = (lng + delta).toFixed(6);
+        const top = (lat + delta).toFixed(6);
+        const bottom = (lat - delta).toFixed(6);
+
+        // OSM embed URL
+        const src = `https://www.openstreetmap.org/export/embed.html?bbox=${left}%2C${bottom}%2C${right}%2C${top}&layer=mapnik&marker=${lat.toFixed(6)}%2C${lng.toFixed(6)}`;
+        osmFrame.src = src;
+
+        // clear map error if any
+        mapError.textContent = '';
+        mapError.style.display = 'none';
+    }
+
+    function tryUpdateMapFromInputs() {
+        const latRaw = (latitude.value || '').trim();
+        const lngRaw = (longitude.value || '').trim();
+        if (!coordRegex.test(latRaw) || !coordRegex.test(lngRaw)) return;
+        const latVal = parseFloat(latRaw);
+        const lngVal = parseFloat(lngRaw);
+        if (isNaN(latVal) || isNaN(lngVal)) return;
+        updateMapPreview(latVal, lngVal);
+    }
+
+    // Default map (Kerala-ish) so iframe isn't empty
+    updateMapPreview(10.850516, 76.271080);
+
+    useMyLocationBtn.addEventListener('click', function () {
+        if (!navigator.geolocation) {
+            showError(null, mapError, 'Geolocation is not supported in this browser.');
+            return;
+        }
+
+        navigator.geolocation.getCurrentPosition(
+            (pos) => {
+                const lat = pos.coords.latitude;
+                const lng = pos.coords.longitude;
+
+                latitude.value = lat.toFixed(6);
+                longitude.value = lng.toFixed(6);
+
+                // validate + map update
+                validateLatitude();
+                validateLongitude();
+                updateMapPreview(lat, lng);
+            },
+            (err) => {
+                showError(null, mapError, 'Location permission denied or unavailable. Please allow location or enter coordinates manually.');
+            },
+            { enableHighAccuracy: true, timeout: 10000 }
+        );
+    });
+
+    refreshMapBtn.addEventListener('click', function () {
+        // If user typed values, update preview
+        const okLat = validateLatitude();
+        const okLng = validateLongitude();
+        if (okLat && okLng) {
+            updateMapPreview(parseFloat(latitude.value), parseFloat(longitude.value));
+        } else {
+            showError(null, mapError, 'Please enter valid Latitude & Longitude to preview on map.');
+        }
+    });
+
+    // Live validation
+    stationName.addEventListener('input', () => {
+        if (!stationName.value) clearState(stationName, nameError);
+        else validateName();
+    });
+
+    email.addEventListener('input', () => {
+        if (!email.value) clearState(email, emailError);
+        else validateEmail();
+    });
+
+    mobile.addEventListener('input', () => {
+        mobile.value = mobile.value.replace(/[^0-9+\s-]/g, '');
+        if (!mobile.value) clearState(mobile, mobileError);
+        else validateMobile();
+    });
+
+    city.addEventListener('input', () => {
+        if (!city.value) clearState(city, cityError);
+        else validateCity();
+    });
+
+    state.addEventListener('input', () => {
+        if (!state.value) clearState(state, stateError);
+        else validateState();
+    });
+
+    latitude.addEventListener('input', () => {
+        latitude.value = latitude.value.replace(/[^0-9.\-]/g, '');
+        if (!latitude.value) clearState(latitude, latError);
+        else validateLatitude();
+        tryUpdateMapFromInputs();
+    });
+
+    longitude.addEventListener('input', () => {
+        longitude.value = longitude.value.replace(/[^0-9.\-]/g, '');
+        if (!longitude.value) clearState(longitude, lngError);
+        else validateLongitude();
+        tryUpdateMapFromInputs();
+    });
+
+    photo.addEventListener('change', validatePhoto);
+
+    // Submit validation (ALL FIELDS REQUIRED)
+    form.addEventListener('submit', function (e) {
+        const ok =
+            validateName() &&
+            validateEmail() &&
+            validateMobile() &&
+            validateCity() &&
+            validateState() &&
+            validateLatitude() &&
+            validateLongitude() &&
+            validatePhoto();
+
+        if (!ok) e.preventDefault();
+    });
+})();
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+{% endblock %}

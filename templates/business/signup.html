@@ -1,0 +1,2218 @@
+{##}
+{##}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#  <meta charset="UTF-8">#}
+{#  <title>Registration Form</title>#}
+{#  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">#}
+{##}
+{#</head>#}
+{#<body>#}
+{#  <div class="container">#}
+{#    <h2 class="mb-4">Business Registration</h2>#}
+{#    <form action="/myapp/editprofile_post/" method="post" enctype="multipart/form-data">#}
+{#        {% csrf_token %}#}
+{#      <div class="row mb-3">#}
+{#        <label for="name" class="col-sm-4 ">Full Name</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="text" name="name" class="form-control" id="name" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="logo" class="col-sm-4 ">logo</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="file" name="logo" class="form-control" id="phone" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="email" class="col-sm-4 ">email</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="email" name="email" class="form-control" id="place" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="pincode" class="col-sm-4 ">pincode</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="text" name="pincode" class="form-control" id="city" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="mobile_number" class="col-sm-4 ">mobile number</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="text" name="mobile_number" class="form-control" id="state" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="established_year" class="col-sm-4 ">established year</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="date" name="established_year" class="form-control" id="photo" accept="image/*" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{##}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="liscence_number" class="col-sm-4 ">liscence number</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="text" name="liscence_number" class="form-control" id="liscence_number" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#        <div class="row mb-3">#}
+{#        <label for="password" class="col-sm-4 ">Password</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="password" name="password" class="form-control" id="password"  required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <div class="offset-sm-4 col-sm-8">#}
+{#          <button type="submit" class="btn btn-primary">Register</button>#}
+{#        </div>#}
+{#      </div>#}
+{#    </form>#}
+{#  </div>#}
+{#  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>#}
+{#</body>#}
+{#</html>#}
+{##}
+{##}
+{##}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#  <meta charset="UTF-8">#}
+{#  <title>Registration Form</title>#}
+{#  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">#}
+{#</head>#}
+{#<body>#}
+{#  <div class="container mt-4">#}
+{#    <h2 class="mb-4">Business Registration</h2>#}
+{##}
+{#    <form action="/myapp/businesssignup_post/" method="post" enctype="multipart/form-data">#}
+{#      {% csrf_token %}#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="name" class="col-sm-4">Full Name</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="text" name="name" class="form-control" id="name" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="image" class="col-sm-4">Logo</label>#}
+{#        <div class="col-sm-8">#}
+{#          <!-- important: name should be 'image' because our code reads request.FILES['image'] -->#}
+{#          <input type="file" name="image" class="form-control" id="image" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="email" class="col-sm-4">Email</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="email" name="email" class="form-control" id="email" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="pincode" class="col-sm-4">Pincode</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="text" name="pincode" class="form-control" id="pincode" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="mobile_number" class="col-sm-4">Mobile Number</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="text" name="mobile_number" class="form-control" id="mobile_number" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="established_year" class="col-sm-4">Established Year</label>#}
+{#        <div class="col-sm-8">#}
+{#          <!-- model field is CharField, so use number or text -->#}
+{#          <input type="number" name="established_year" class="form-control" id="established_year" placeholder="YYYY" min="1900" max="2100" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="liscence_number" class="col-sm-4">Licence Number</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="text" name="liscence_number" class="form-control" id="liscence_number" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <!-- ✅ Subscription Plan -->#}
+{#      <div class="row mb-3">#}
+{#        <label for="plan" class="col-sm-4">Subscription Plan</label>#}
+{#        <div class="col-sm-8">#}
+{#          <select name="plan" id="plan" class="form-control" required>#}
+{#            <option value="">-- Select Plan --</option>#}
+{#            <option value="1_month">1 Month - ₹500</option>#}
+{#            <option value="3_month">3 Months - ₹1200</option>#}
+{#            <option value="1_year">1 Year - ₹4000</option>#}
+{#          </select>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="password" class="col-sm-4">Password</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="password" name="password" class="form-control" id="password" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <div class="offset-sm-4 col-sm-8">#}
+{#          <button type="submit" class="btn btn-primary">Proceed to Payment</button>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#    </form>#}
+{#  </div>#}
+{##}
+{#  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>#}
+{#</body>#}
+{#</html>#}
+
+{#------------Cloude Signup-----------#}
+{##}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>ServiQ — Business Signup</title>#}
+{#    <link rel="preconnect" href="https://fonts.googleapis.com">#}
+{#    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;600;700&family=Exo+2:wght@200;300;400;600&display=swap" rel="stylesheet">#}
+{#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">#}
+{#    <style>#}
+{#        :root {#}
+{#            --glass: rgba(255,255,255,0.07);#}
+{#            --glass-border: rgba(255,255,255,0.18);#}
+{#            --accent: #00e5ff;#}
+{#            --accent2: #7c4dff;#}
+{#            --accent3: #00bfa5;#}
+{#            --text: #e0f7fa;#}
+{#            --muted: rgba(224,247,250,0.5);#}
+{#            --glow: 0 0 30px rgba(0,229,255,0.2);#}
+{#            --glow2: 0 0 60px rgba(124,77,255,0.15);#}
+{#        }#}
+{##}
+{#        * { margin: 0; padding: 0; box-sizing: border-box; }#}
+{##}
+{#        body {#}
+{#            min-height: 100vh;#}
+{#            font-family: 'Exo 2', sans-serif;#}
+{#            background: #040b14;#}
+{#            overflow-x: hidden;#}
+{#            display: flex;#}
+{#            align-items: flex-start;#}
+{#            justify-content: center;#}
+{#            padding: 40px 16px 60px;#}
+{#        }#}
+{##}
+{#        /* ── Background ── */#}
+{#        .bg-canvas {#}
+{#            position: fixed;#}
+{#            inset: 0;#}
+{#            z-index: 0;#}
+{#            background:#}
+{#                radial-gradient(ellipse 80% 60% at 20% 40%, rgba(0,100,180,0.22) 0%, transparent 60%),#}
+{#                radial-gradient(ellipse 60% 80% at 80% 70%, rgba(124,77,255,0.18) 0%, transparent 60%),#}
+{#                radial-gradient(ellipse 50% 50% at 50% 0%, rgba(0,229,255,0.1) 0%, transparent 50%),#}
+{#                #040b14;#}
+{#        }#}
+{##}
+{#        .orb {#}
+{#            position: fixed;#}
+{#            border-radius: 50%;#}
+{#            filter: blur(70px);#}
+{#            pointer-events: none;#}
+{#            z-index: 0;#}
+{#        }#}
+{#        .orb-1 {#}
+{#            width: 450px; height: 450px;#}
+{#            background: radial-gradient(circle, rgba(0,229,255,0.12), transparent 70%);#}
+{#            top: -120px; left: -120px;#}
+{#            animation: floatOrb1 13s ease-in-out infinite;#}
+{#        }#}
+{#        .orb-2 {#}
+{#            width: 550px; height: 550px;#}
+{#            background: radial-gradient(circle, rgba(124,77,255,0.1), transparent 70%);#}
+{#            bottom: -180px; right: -180px;#}
+{#            animation: floatOrb2 16s ease-in-out infinite;#}
+{#        }#}
+{##}
+{#        @keyframes floatOrb1 {#}
+{#            0%,100% { transform: translate(0,0); }#}
+{#            50% { transform: translate(60px, 80px); }#}
+{#        }#}
+{#        @keyframes floatOrb2 {#}
+{#            0%,100% { transform: translate(0,0); }#}
+{#            50% { transform: translate(-80px, -60px); }#}
+{#        }#}
+{##}
+{#        .grid-bg {#}
+{#            position: fixed;#}
+{#            inset: 0;#}
+{#            z-index: 0;#}
+{#            background-image:#}
+{#                linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),#}
+{#                linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);#}
+{#            background-size: 50px 50px;#}
+{#            animation: gridShift 22s linear infinite;#}
+{#        }#}
+{#        @keyframes gridShift {#}
+{#            0% { transform: perspective(500px) rotateX(5deg) translateY(0); }#}
+{#            100% { transform: perspective(500px) rotateX(5deg) translateY(50px); }#}
+{#        }#}
+{##}
+{#        /* ── Main wrapper ── */#}
+{#        .signup-wrapper {#}
+{#            position: relative;#}
+{#            z-index: 10;#}
+{#            width: 100%;#}
+{#            max-width: 600px;#}
+{#            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;#}
+{#        }#}
+{##}
+{#        @keyframes slideUp {#}
+{#            from { opacity: 0; transform: translateY(40px) scale(0.97); }#}
+{#            to   { opacity: 1; transform: translateY(0) scale(1); }#}
+{#        }#}
+{##}
+{#        /* ── Brand ── */#}
+{#        .brand {#}
+{#            text-align: center;#}
+{#            margin-bottom: 28px;#}
+{#            animation: slideUp 0.8s 0.1s cubic-bezier(0.16, 1, 0.3, 1) both;#}
+{#        }#}
+{##}
+{#        .brand-icon {#}
+{#            width: 56px; height: 56px;#}
+{#            margin: 0 auto 10px;#}
+{#        }#}
+{##}
+{#        .brand-icon svg {#}
+{#            width: 100%; height: 100%;#}
+{#            filter: drop-shadow(0 0 12px rgba(0,229,255,0.6));#}
+{#        }#}
+{##}
+{#        .brand-name {#}
+{#            font-family: 'Rajdhani', sans-serif;#}
+{#            font-size: 1.8rem;#}
+{#            font-weight: 700;#}
+{#            letter-spacing: 4px;#}
+{#            text-transform: uppercase;#}
+{#            background: linear-gradient(135deg, #00e5ff 0%, #7c4dff 50%, #00bfa5 100%);#}
+{#            -webkit-background-clip: text;#}
+{#            -webkit-text-fill-color: transparent;#}
+{#            background-clip: text;#}
+{#        }#}
+{##}
+{#        .brand-tagline {#}
+{#            font-size: 0.65rem;#}
+{#            letter-spacing: 3px;#}
+{#            text-transform: uppercase;#}
+{#            color: var(--muted);#}
+{#            font-weight: 300;#}
+{#            margin-top: 4px;#}
+{#        }#}
+{##}
+{#        /* ── Glass card ── */#}
+{#        .glass-card {#}
+{#            background: var(--glass);#}
+{#            backdrop-filter: blur(24px) saturate(180%);#}
+{#            -webkit-backdrop-filter: blur(24px) saturate(180%);#}
+{#            border: 1px solid var(--glass-border);#}
+{#            border-radius: 24px;#}
+{#            padding: 40px 40px 36px;#}
+{#            position: relative;#}
+{#            overflow: hidden;#}
+{#            box-shadow:#}
+{#                0 8px 32px rgba(0,0,0,0.4),#}
+{#                0 0 0 1px rgba(255,255,255,0.05) inset,#}
+{#                var(--glow),#}
+{#                var(--glow2);#}
+{#            animation: slideUp 0.8s 0.15s cubic-bezier(0.16, 1, 0.3, 1) both;#}
+{#        }#}
+{##}
+{#        .glass-card::before {#}
+{#            content: '';#}
+{#            position: absolute;#}
+{#            top: 0; left: 10%; right: 10%;#}
+{#            height: 1px;#}
+{#            background: linear-gradient(90deg, transparent, rgba(0,229,255,0.6), rgba(124,77,255,0.6), transparent);#}
+{#            animation: shimmerLine 3s ease-in-out infinite;#}
+{#        }#}
+{##}
+{#        @keyframes shimmerLine {#}
+{#            0%,100% { opacity: 0.4; transform: scaleX(0.8); }#}
+{#            50%      { opacity: 1;   transform: scaleX(1); }#}
+{#        }#}
+{##}
+{#        .glass-card::after {#}
+{#            content: '';#}
+{#            position: absolute;#}
+{#            top: -100%; left: -60%;#}
+{#            width: 40%; height: 300%;#}
+{#            background: linear-gradient(105deg, transparent, rgba(255,255,255,0.03), transparent);#}
+{#            transform: skewX(-20deg);#}
+{#            animation: sweepLight 7s ease-in-out infinite;#}
+{#            pointer-events: none;#}
+{#        }#}
+{##}
+{#        @keyframes sweepLight {#}
+{#            0%    { left: -60%; opacity: 0; }#}
+{#            10%   { opacity: 1; }#}
+{#            40%   { left: 120%; opacity: 0; }#}
+{#            100%  { left: 120%; opacity: 0; }#}
+{#        }#}
+{##}
+{#        /* ── Section heading ── */#}
+{#        .section-header {#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            gap: 12px;#}
+{#            margin-bottom: 28px;#}
+{#        }#}
+{##}
+{#        .section-header-line {#}
+{#            flex: 1;#}
+{#            height: 1px;#}
+{#            background: rgba(255,255,255,0.08);#}
+{#        }#}
+{##}
+{#        .section-title {#}
+{#            font-family: 'Rajdhani', sans-serif;#}
+{#            font-size: 0.75rem;#}
+{#            font-weight: 700;#}
+{#            letter-spacing: 4px;#}
+{#            text-transform: uppercase;#}
+{#            color: var(--accent2);#}
+{#            white-space: nowrap;#}
+{#        }#}
+{##}
+{#        /* ── Step badges ── */#}
+{#        .step-group {#}
+{#            margin-bottom: 32px;#}
+{#        }#}
+{##}
+{#        .step-label {#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            gap: 8px;#}
+{#            margin-bottom: 16px;#}
+{#        }#}
+{##}
+{#        .step-badge {#}
+{#            width: 22px; height: 22px;#}
+{#            border-radius: 50%;#}
+{#            background: linear-gradient(135deg, var(--accent), var(--accent2));#}
+{#            display: flex; align-items: center; justify-content: center;#}
+{#            font-family: 'Rajdhani', sans-serif;#}
+{#            font-size: 0.65rem;#}
+{#            font-weight: 700;#}
+{#            color: #040b14;#}
+{#            flex-shrink: 0;#}
+{#            box-shadow: 0 0 10px rgba(0,229,255,0.3);#}
+{#        }#}
+{##}
+{#        .step-name {#}
+{#            font-family: 'Rajdhani', sans-serif;#}
+{#            font-size: 0.7rem;#}
+{#            font-weight: 600;#}
+{#            letter-spacing: 3px;#}
+{#            text-transform: uppercase;#}
+{#            color: var(--muted);#}
+{#        }#}
+{##}
+{#        /* ── Form fields ── */#}
+{#        .field-row {#}
+{#            margin-bottom: 18px;#}
+{#        }#}
+{##}
+{#        .field-label {#}
+{#            font-size: 0.62rem;#}
+{#            font-weight: 600;#}
+{#            letter-spacing: 3px;#}
+{#            text-transform: uppercase;#}
+{#            color: var(--accent);#}
+{#            margin-bottom: 7px;#}
+{#            display: block;#}
+{#        }#}
+{##}
+{#        .input-wrapper {#}
+{#            position: relative;#}
+{#        }#}
+{##}
+{#        .input-icon {#}
+{#            position: absolute;#}
+{#            left: 14px; top: 50%;#}
+{#            transform: translateY(-50%);#}
+{#            color: var(--muted);#}
+{#            transition: color 0.3s;#}
+{#            z-index: 2;#}
+{#            pointer-events: none;#}
+{#        }#}
+{##}
+{#        .form-control, .form-select {#}
+{#            background: rgba(0,0,0,0.3) !important;#}
+{#            border: 1px solid rgba(255,255,255,0.1) !important;#}
+{#            border-radius: 12px !important;#}
+{#            color: var(--text) !important;#}
+{#            font-family: 'Exo 2', sans-serif;#}
+{#            font-size: 0.9rem;#}
+{#            padding: 11px 16px 11px 44px !important;#}
+{#            height: auto !important;#}
+{#            transition: all 0.3s ease !important;#}
+{#            backdrop-filter: blur(8px);#}
+{#            width: 100%;#}
+{#        }#}
+{##}
+{#        .form-select {#}
+{#            cursor: pointer;#}
+{#            -webkit-appearance: none;#}
+{#        }#}
+{##}
+{#        .form-control::placeholder {#}
+{#            color: rgba(224,247,250,0.2);#}
+{#            font-weight: 300;#}
+{#        }#}
+{##}
+{#        .form-control:focus, .form-select:focus {#}
+{#            background: rgba(0,229,255,0.05) !important;#}
+{#            border-color: var(--accent) !important;#}
+{#            box-shadow: 0 0 0 3px rgba(0,229,255,0.1), 0 0 20px rgba(0,229,255,0.12) !important;#}
+{#            outline: none !important;#}
+{#            color: #fff !important;#}
+{#        }#}
+{##}
+{#        .input-wrapper:focus-within .input-icon { color: var(--accent); }#}
+{##}
+{#        /* File input special */#}
+{#        .file-input-wrapper {#}
+{#            position: relative;#}
+{#        }#}
+{##}
+{#        .file-input-display {#}
+{#            background: rgba(0,0,0,0.3);#}
+{#            border: 1px dashed rgba(0,229,255,0.25);#}
+{#            border-radius: 12px;#}
+{#            padding: 14px 16px;#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            gap: 12px;#}
+{#            cursor: pointer;#}
+{#            transition: all 0.3s;#}
+{#        }#}
+{##}
+{#        .file-input-display:hover {#}
+{#            border-color: rgba(0,229,255,0.5);#}
+{#            background: rgba(0,229,255,0.04);#}
+{#        }#}
+{##}
+{#        .file-input-display svg { color: var(--accent); flex-shrink: 0; }#}
+{##}
+{#        .file-placeholder {#}
+{#            font-size: 0.82rem;#}
+{#            color: rgba(224,247,250,0.3);#}
+{#            font-weight: 300;#}
+{#        }#}
+{##}
+{#        .file-name {#}
+{#            font-size: 0.82rem;#}
+{#            color: var(--accent3);#}
+{#        }#}
+{##}
+{#        input[type="file"] {#}
+{#            position: absolute;#}
+{#            inset: 0;#}
+{#            opacity: 0;#}
+{#            cursor: pointer;#}
+{#            z-index: 3;#}
+{#        }#}
+{##}
+{#        /* Two-column grid */#}
+{#        .fields-grid {#}
+{#            display: grid;#}
+{#            grid-template-columns: 1fr 1fr;#}
+{#            gap: 0 20px;#}
+{#        }#}
+{##}
+{#        @media (max-width: 500px) {#}
+{#            .fields-grid { grid-template-columns: 1fr; }#}
+{#            .glass-card { padding: 28px 20px; }#}
+{#        }#}
+{##}
+{#        /* Plan cards */#}
+{#        .plan-grid {#}
+{#            display: grid;#}
+{#            grid-template-columns: repeat(3, 1fr);#}
+{#            gap: 12px;#}
+{#            margin-bottom: 18px;#}
+{#        }#}
+{##}
+{#        @media (max-width: 500px) {#}
+{#            .plan-grid { grid-template-columns: 1fr; }#}
+{#        }#}
+{##}
+{#        .plan-card {#}
+{#            border: 1px solid rgba(255,255,255,0.1);#}
+{#            border-radius: 14px;#}
+{#            padding: 16px 12px;#}
+{#            cursor: pointer;#}
+{#            transition: all 0.3s;#}
+{#            background: rgba(0,0,0,0.2);#}
+{#            position: relative;#}
+{#            overflow: hidden;#}
+{#        }#}
+{##}
+{#        .plan-card input[type="radio"] {#}
+{#            position: absolute;#}
+{#            opacity: 0;#}
+{#            pointer-events: none;#}
+{#        }#}
+{##}
+{#        .plan-card:hover {#}
+{#            border-color: rgba(0,229,255,0.3);#}
+{#            background: rgba(0,229,255,0.04);#}
+{#        }#}
+{##}
+{#        .plan-card.selected {#}
+{#            border-color: var(--accent);#}
+{#            background: rgba(0,229,255,0.08);#}
+{#            box-shadow: 0 0 20px rgba(0,229,255,0.15);#}
+{#        }#}
+{##}
+{#        .plan-card.selected::before {#}
+{#            content: '✓';#}
+{#            position: absolute;#}
+{#            top: 8px; right: 10px;#}
+{#            font-size: 0.65rem;#}
+{#            color: var(--accent);#}
+{#            font-weight: 700;#}
+{#        }#}
+{##}
+{#        .plan-duration {#}
+{#            font-family: 'Rajdhani', sans-serif;#}
+{#            font-size: 1rem;#}
+{#            font-weight: 700;#}
+{#            color: var(--text);#}
+{#            letter-spacing: 1px;#}
+{#        }#}
+{##}
+{#        .plan-price {#}
+{#            font-size: 1.3rem;#}
+{#            font-weight: 600;#}
+{#            color: var(--accent);#}
+{#            font-family: 'Rajdhani', sans-serif;#}
+{#            margin-top: 4px;#}
+{#        }#}
+{##}
+{#        .plan-per {#}
+{#            font-size: 0.65rem;#}
+{#            color: var(--muted);#}
+{#            letter-spacing: 1px;#}
+{#        }#}
+{##}
+{#        .plan-badge {#}
+{#            display: inline-block;#}
+{#            margin-top: 8px;#}
+{#            padding: 2px 8px;#}
+{#            border-radius: 20px;#}
+{#            font-size: 0.58rem;#}
+{#            letter-spacing: 1.5px;#}
+{#            text-transform: uppercase;#}
+{#            font-weight: 600;#}
+{#        }#}
+{##}
+{#        .badge-popular {#}
+{#            background: rgba(0,229,255,0.15);#}
+{#            color: var(--accent);#}
+{#            border: 1px solid rgba(0,229,255,0.3);#}
+{#        }#}
+{#        .badge-best {#}
+{#            background: rgba(0,191,165,0.15);#}
+{#            color: var(--accent3);#}
+{#            border: 1px solid rgba(0,191,165,0.3);#}
+{#        }#}
+{##}
+{#        /* Hidden select for form submission */#}
+{#        #plan-hidden { display: none; }#}
+{##}
+{#        /* ── Submit button ── */#}
+{#        .btn-register {#}
+{#            width: 100%;#}
+{#            padding: 15px;#}
+{#            font-family: 'Rajdhani', sans-serif;#}
+{#            font-size: 1rem;#}
+{#            font-weight: 700;#}
+{#            letter-spacing: 4px;#}
+{#            text-transform: uppercase;#}
+{#            color: #040b14;#}
+{#            background: linear-gradient(135deg, #00e5ff, #7c4dff);#}
+{#            border: none;#}
+{#            border-radius: 12px;#}
+{#            cursor: pointer;#}
+{#            position: relative;#}
+{#            overflow: hidden;#}
+{#            transition: all 0.3s ease;#}
+{#            margin-top: 8px;#}
+{#            box-shadow: 0 4px 24px rgba(0,229,255,0.3), 0 0 0 1px rgba(0,229,255,0.2);#}
+{#        }#}
+{##}
+{#        .btn-register::before {#}
+{#            content: '';#}
+{#            position: absolute;#}
+{#            inset: 0;#}
+{#            background: linear-gradient(135deg, #7c4dff, #00e5ff);#}
+{#            opacity: 0;#}
+{#            transition: opacity 0.4s;#}
+{#        }#}
+{##}
+{#        .btn-register:hover::before { opacity: 1; }#}
+{##}
+{#        .btn-register:hover {#}
+{#            transform: translateY(-2px);#}
+{#            box-shadow: 0 8px 32px rgba(0,229,255,0.4), 0 0 0 1px rgba(0,229,255,0.4);#}
+{#        }#}
+{##}
+{#        .btn-register:active { transform: translateY(0); }#}
+{##}
+{#        .btn-register span { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 8px; }#}
+{##}
+{#        .btn-register .ripple {#}
+{#            position: absolute;#}
+{#            border-radius: 50%;#}
+{#            background: rgba(255,255,255,0.3);#}
+{#            transform: scale(0);#}
+{#            animation: rippleEffect 0.6s linear;#}
+{#            pointer-events: none;#}
+{#        }#}
+{#        @keyframes rippleEffect { to { transform: scale(4); opacity: 0; } }#}
+{##}
+{#        /* ── Footer links ── */#}
+{#        .form-footer {#}
+{#            text-align: center;#}
+{#            margin-top: 22px;#}
+{#        }#}
+{##}
+{#        .footer-text {#}
+{#            font-size: 0.72rem;#}
+{#            color: var(--muted);#}
+{#            letter-spacing: 1px;#}
+{#        }#}
+{##}
+{#        .footer-link {#}
+{#            color: var(--accent);#}
+{#            text-decoration: none;#}
+{#            font-weight: 600;#}
+{#            transition: color 0.3s;#}
+{#        }#}
+{##}
+{#        .footer-link:hover { color: var(--accent3); text-decoration: none; }#}
+{##}
+{#        /* ── Status bar ── */#}
+{#        .status-bar {#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            justify-content: center;#}
+{#            gap: 8px;#}
+{#            margin-top: 18px;#}
+{#        }#}
+{#        .dot {#}
+{#            width: 5px; height: 5px;#}
+{#            border-radius: 50%;#}
+{#            background: var(--accent3);#}
+{#            box-shadow: 0 0 8px var(--accent3);#}
+{#            animation: pulse 2s ease-in-out infinite;#}
+{#        }#}
+{#        .dot:nth-child(2) { animation-delay: 0.3s; background: var(--accent); box-shadow: 0 0 8px var(--accent); }#}
+{#        .dot:nth-child(3) { animation-delay: 0.6s; background: var(--accent2); box-shadow: 0 0 8px var(--accent2); }#}
+{#        @keyframes pulse {#}
+{#            0%,100% { transform: scale(1); opacity: 0.6; }#}
+{#            50%      { transform: scale(1.4); opacity: 1; }#}
+{#        }#}
+{#        .status-text {#}
+{#            font-size: 0.58rem;#}
+{#            letter-spacing: 2px;#}
+{#            color: rgba(255,255,255,0.18);#}
+{#            text-transform: uppercase;#}
+{#        }#}
+{##}
+{#        /* form-group override for bootstrap */#}
+{#        .form-group { margin: 0; }#}
+{##}
+{#        /* Select option dark */#}
+{#        .form-select option {#}
+{#            background: #0d1a2b;#}
+{#            color: var(--text);#}
+{#        }#}
+{##}
+{#        /* Password strength */#}
+{#        .strength-bar {#}
+{#            height: 3px;#}
+{#            border-radius: 2px;#}
+{#            background: rgba(255,255,255,0.08);#}
+{#            margin-top: 6px;#}
+{#            overflow: hidden;#}
+{#        }#}
+{#        .strength-fill {#}
+{#            height: 100%;#}
+{#            width: 0%;#}
+{#            border-radius: 2px;#}
+{#            transition: width 0.4s, background 0.4s;#}
+{#        }#}
+{#    </style>#}
+{#</head>#}
+{#<body>#}
+{#    <div class="bg-canvas"></div>#}
+{#    <div class="grid-bg"></div>#}
+{#    <div class="orb orb-1"></div>#}
+{#    <div class="orb orb-2"></div>#}
+{##}
+{#    <div class="signup-wrapper">#}
+{#        <!-- Brand -->#}
+{#        <div class="brand">#}
+{#            <div class="brand-icon">#}
+{#                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">#}
+{#                    <circle cx="32" cy="32" r="28" stroke="url(#g1)" stroke-width="1.5"/>#}
+{#                    <circle cx="32" cy="32" r="20" stroke="url(#g2)" stroke-width="1" stroke-dasharray="4 3"/>#}
+{#                    <circle cx="32" cy="32" r="4" fill="url(#g1)"/>#}
+{#                    <circle cx="32" cy="12" r="3" fill="#00e5ff" opacity="0.9"/>#}
+{#                    <circle cx="48" cy="24" r="3" fill="#7c4dff" opacity="0.7"/>#}
+{#                    <circle cx="48" cy="40" r="3" fill="#00bfa5" opacity="0.5"/>#}
+{#                    <circle cx="32" cy="52" r="3" fill="#00e5ff" opacity="0.3"/>#}
+{#                    <circle cx="16" cy="40" r="3" fill="#7c4dff" opacity="0.5"/>#}
+{#                    <circle cx="16" cy="24" r="3" fill="#00bfa5" opacity="0.7"/>#}
+{#                    <line x1="32" y1="15" x2="32" y2="28" stroke="url(#g1)" stroke-width="0.75" opacity="0.4"/>#}
+{#                    <line x1="45" y1="26" x2="36" y2="31" stroke="url(#g2)" stroke-width="0.75" opacity="0.4"/>#}
+{#                    <defs>#}
+{#                        <linearGradient id="g1" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">#}
+{#                            <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>#}
+{#                        </linearGradient>#}
+{#                        <linearGradient id="g2" x1="64" y1="0" x2="0" y2="64" gradientUnits="userSpaceOnUse">#}
+{#                            <stop stop-color="#7c4dff"/><stop offset="1" stop-color="#00bfa5"/>#}
+{#                        </linearGradient>#}
+{#                    </defs>#}
+{#                </svg>#}
+{#            </div>#}
+{#            <div class="brand-name">ServiQ</div>#}
+{#            <div class="brand-tagline">Business Registration</div>#}
+{#        </div>#}
+{##}
+{#        <!-- Glass Card -->#}
+{#        <div class="glass-card">#}
+{#            <div class="section-header">#}
+{#                <div class="section-header-line"></div>#}
+{#                <span class="section-title">New Business Account</span>#}
+{#                <div class="section-header-line"></div>#}
+{#            </div>#}
+{##}
+{#            <form action="/myapp/businesssignup_post/" method="post" enctype="multipart/form-data" id="signupForm">#}
+{#                {% csrf_token %}#}
+{##}
+{#                <!-- Step 1: Business Info -->#}
+{#                <div class="step-group">#}
+{#                    <div class="step-label">#}
+{#                        <div class="step-badge">1</div>#}
+{#                        <span class="step-name">Business Identity</span>#}
+{#                    </div>#}
+{##}
+{#                    <div class="fields-grid">#}
+{#                        <!-- Full Name -->#}
+{#                        <div class="field-row">#}
+{#                            <label class="field-label">Full Name</label>#}
+{#                            <div class="input-wrapper">#}
+{#                                <input type="text" name="name" class="form-control" placeholder="Business name" required>#}
+{#                                <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">#}
+{#                                    <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>#}
+{#                                </svg>#}
+{#                            </div>#}
+{#                        </div>#}
+{##}
+{#                        <!-- Established Year -->#}
+{#                        <div class="field-row">#}
+{#                            <label class="field-label">Established Year</label>#}
+{#                            <div class="input-wrapper">#}
+{#                                <input type="number" name="established_year" class="form-control" placeholder="YYYY" min="1900" max="2100" required>#}
+{#                                <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">#}
+{#                                    <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>#}
+{#                                </svg>#}
+{#                            </div>#}
+{#                        </div>#}
+{##}
+{#                        <!-- Licence Number -->#}
+{#                        <div class="field-row">#}
+{#                            <label class="field-label">Licence Number</label>#}
+{#                            <div class="input-wrapper">#}
+{#                                <input type="text" name="liscence_number" class="form-control" placeholder="LIC-XXXXXXXX" required>#}
+{#                                <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">#}
+{#                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>#}
+{#                                </svg>#}
+{#                            </div>#}
+{#                        </div>#}
+{##}
+{#                        <!-- Pincode -->#}
+{#                        <div class="field-row">#}
+{#                            <label class="field-label">Pincode</label>#}
+{#                            <div class="input-wrapper">#}
+{#                                <input type="text" name="pincode" class="form-control" placeholder="000000" maxlength="6" required>#}
+{#                                <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">#}
+{#                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>#}
+{#                                </svg>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <!-- Logo Upload — full width -->#}
+{#                    <div class="field-row">#}
+{#                        <label class="field-label">Business Logo</label>#}
+{#                        <div class="file-input-wrapper">#}
+{#                            <div class="file-input-display" id="fileDisplay">#}
+{#                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">#}
+{#                                    <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>#}
+{#                                </svg>#}
+{#                                <span class="file-placeholder" id="filePlaceholder">Click to upload logo image…</span>#}
+{#                            </div>#}
+{#                            <input type="file" name="image" id="logoInput" accept="image/*" required>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <!-- Step 2: Contact Info -->#}
+{#                <div class="step-group">#}
+{#                    <div class="step-label">#}
+{#                        <div class="step-badge">2</div>#}
+{#                        <span class="step-name">Contact Details</span>#}
+{#                    </div>#}
+{##}
+{#                    <div class="fields-grid">#}
+{#                        <!-- Email -->#}
+{#                        <div class="field-row">#}
+{#                            <label class="field-label">Email Address</label>#}
+{#                            <div class="input-wrapper">#}
+{#                                <input type="email" name="email" class="form-control" placeholder="you@business.com" required>#}
+{#                                <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">#}
+{#                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>#}
+{#                                </svg>#}
+{#                            </div>#}
+{#                        </div>#}
+{##}
+{#                        <!-- Mobile -->#}
+{#                        <div class="field-row">#}
+{#                            <label class="field-label">Mobile Number</label>#}
+{#                            <div class="input-wrapper">#}
+{#                                <input type="text" name="mobile_number" class="form-control" placeholder="+91 00000 00000" required>#}
+{#                                <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">#}
+{#                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.12 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>#}
+{#                                </svg>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <!-- Step 3: Subscription -->#}
+{#                <div class="step-group">#}
+{#                    <div class="step-label">#}
+{#                        <div class="step-badge">3</div>#}
+{#                        <span class="step-name">Subscription Plan</span>#}
+{#                    </div>#}
+{##}
+{#                    <div class="plan-grid">#}
+{#                        <!-- 1 Month -->#}
+{#                        <label class="plan-card" id="plan-1month">#}
+{#                            <input type="radio" name="plan_radio" value="1_month">#}
+{#                            <div class="plan-duration">1 Month</div>#}
+{#                            <div class="plan-price">₹500</div>#}
+{#                            <div class="plan-per">per month</div>#}
+{#                        </label>#}
+{##}
+{#                        <!-- 3 Months -->#}
+{#                        <label class="plan-card" id="plan-3month">#}
+{#                            <input type="radio" name="plan_radio" value="3_month">#}
+{#                            <div class="plan-duration">3 Months</div>#}
+{#                            <div class="plan-price">₹1200</div>#}
+{#                            <div class="plan-per">₹400/mo</div>#}
+{#                            <div class="plan-badge badge-popular">Popular</div>#}
+{#                        </label>#}
+{##}
+{#                        <!-- 1 Year -->#}
+{#                        <label class="plan-card" id="plan-1year">#}
+{#                            <input type="radio" name="plan_radio" value="1_year">#}
+{#                            <div class="plan-duration">1 Year</div>#}
+{#                            <div class="plan-price">₹4000</div>#}
+{#                            <div class="plan-per">₹333/mo</div>#}
+{#                            <div class="plan-badge badge-best">Best Value</div>#}
+{#                        </label>#}
+{#                    </div>#}
+{##}
+{#                    <!-- Hidden select that gets submitted -->#}
+{#                    <select name="plan" id="plan-hidden" required>#}
+{#                        <option value="">-- Select Plan --</option>#}
+{#                        <option value="1_month">1 Month - ₹500</option>#}
+{#                        <option value="3_month">3 Months - ₹1200</option>#}
+{#                        <option value="1_year">1 Year - ₹4000</option>#}
+{#                    </select>#}
+{#                </div>#}
+{##}
+{#                <!-- Step 4: Security -->#}
+{#                <div class="step-group">#}
+{#                    <div class="step-label">#}
+{#                        <div class="step-badge">4</div>#}
+{#                        <span class="step-name">Account Security</span>#}
+{#                    </div>#}
+{##}
+{#                    <div class="field-row">#}
+{#                        <label class="field-label">Password</label>#}
+{#                        <div class="input-wrapper">#}
+{#                            <input type="password" name="password" class="form-control" id="passwordInput" placeholder="Create a strong password" required>#}
+{#                            <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">#}
+{#                                <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>#}
+{#                            </svg>#}
+{#                        </div>#}
+{#                        <div class="strength-bar"><div class="strength-fill" id="strengthFill"></div></div>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <!-- Submit -->#}
+{#                <button type="submit" class="btn-register" id="submitBtn">#}
+{#                    <span>#}
+{#                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">#}
+{#                            <polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>#}
+{#                        </svg>#}
+{#                        Proceed to Payment#}
+{#                    </span>#}
+{#                </button>#}
+{#            </form>#}
+{##}
+{#            <div class="form-footer">#}
+{#                <span class="footer-text">Already registered? <a href="/myapp/login_get/" class="footer-link">Sign In</a></span>#}
+{#            </div>#}
+{##}
+{#            <div class="status-bar">#}
+{#                <div class="dot"></div>#}
+{#                <div class="dot"></div>#}
+{#                <div class="dot"></div>#}
+{#                <span class="status-text">Secure Registration</span>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>#}
+{#    <script>#}
+{#        // Plan card selection#}
+{#        const planCards = document.querySelectorAll('.plan-card');#}
+{#        const planHidden = document.getElementById('plan-hidden');#}
+{##}
+{#        planCards.forEach(card => {#}
+{#            card.addEventListener('click', () => {#}
+{#                planCards.forEach(c => c.classList.remove('selected'));#}
+{#                card.classList.add('selected');#}
+{#                const val = card.querySelector('input[type="radio"]').value;#}
+{#                planHidden.value = val;#}
+{#            });#}
+{#        });#}
+{##}
+{#        // File upload display#}
+{#        document.getElementById('logoInput').addEventListener('change', function() {#}
+{#            const name = this.files[0] ? this.files[0].name : null;#}
+{#            const placeholder = document.getElementById('filePlaceholder');#}
+{#            if (name) {#}
+{#                placeholder.textContent = name;#}
+{#                placeholder.classList.add('file-name');#}
+{#                placeholder.classList.remove('file-placeholder');#}
+{#            }#}
+{#        });#}
+{##}
+{#        // Password strength#}
+{#        document.getElementById('passwordInput').addEventListener('input', function() {#}
+{#            const val = this.value;#}
+{#            const fill = document.getElementById('strengthFill');#}
+{#            let strength = 0;#}
+{#            if (val.length >= 8) strength++;#}
+{#            if (/[A-Z]/.test(val)) strength++;#}
+{#            if (/[0-9]/.test(val)) strength++;#}
+{#            if (/[^A-Za-z0-9]/.test(val)) strength++;#}
+{#            const colors = ['', '#ff5252', '#ffab40', '#00e5ff', '#00bfa5'];#}
+{#            const widths  = [0, 25, 50, 75, 100];#}
+{#            fill.style.width = widths[strength] + '%';#}
+{#            fill.style.background = colors[strength];#}
+{#        });#}
+{##}
+{#        // Ripple effect#}
+{#        document.getElementById('submitBtn').addEventListener('click', function(e) {#}
+{#            const btn = this;#}
+{#            const ripple = document.createElement('span');#}
+{#            ripple.classList.add('ripple');#}
+{#            const size = Math.max(btn.offsetWidth, btn.offsetHeight);#}
+{#            const rect = btn.getBoundingClientRect();#}
+{#            ripple.style.width = ripple.style.height = size + 'px';#}
+{#            ripple.style.left = (e.clientX - rect.left - size/2) + 'px';#}
+{#            ripple.style.top  = (e.clientY - rect.top  - size/2) + 'px';#}
+{#            btn.appendChild(ripple);#}
+{#            setTimeout(() => ripple.remove(), 600);#}
+{#        });#}
+{##}
+{#        // 3D tilt#}
+{#        const card = document.querySelector('.glass-card');#}
+{#        document.addEventListener('mousemove', (e) => {#}
+{#            const rect = card.getBoundingClientRect();#}
+{#            const cx = rect.left + rect.width / 2;#}
+{#            const cy = rect.top + rect.height / 2;#}
+{#            const dx = (e.clientX - cx) / (window.innerWidth / 2);#}
+{#            const dy = (e.clientY - cy) / (window.innerHeight / 2);#}
+{#            card.style.transform = `perspective(1000px) rotateY(${dx * 4}deg) rotateX(${-dy * 2}deg)`;#}
+{#        });#}
+{#        document.addEventListener('mouseleave', () => {#}
+{#            card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';#}
+{#        });#}
+{#    </script>#}
+{#</body>#}
+{#</html>#}
+
+
+{#---------Signup with validation----------#}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ServiQ — Business Signup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;600;700&family=Exo+2:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --glass: rgba(255,255,255,0.07);
+            --glass-border: rgba(255,255,255,0.18);
+            --accent: #00e5ff;
+            --accent2: #7c4dff;
+            --accent3: #00bfa5;
+            --text: #e0f7fa;
+            --muted: rgba(224,247,250,0.5);
+            --glow: 0 0 30px rgba(0,229,255,0.2);
+            --glow2: 0 0 60px rgba(124,77,255,0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Exo 2', sans-serif;
+            background: #040b14;
+            overflow-x: hidden;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 40px 16px 60px;
+        }
+
+        /* ── Background ── */
+        .bg-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 20% 40%, rgba(0,100,180,0.22) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 80% at 80% 70%, rgba(124,77,255,0.18) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 50% at 50% 0%, rgba(0,229,255,0.1) 0%, transparent 50%),
+                #040b14;
+        }
+
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(70px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .orb-1 {
+            width: 450px; height: 450px;
+            background: radial-gradient(circle, rgba(0,229,255,0.12), transparent 70%);
+            top: -120px; left: -120px;
+            animation: floatOrb1 13s ease-in-out infinite;
+        }
+        .orb-2 {
+            width: 550px; height: 550px;
+            background: radial-gradient(circle, rgba(124,77,255,0.1), transparent 70%);
+            bottom: -180px; right: -180px;
+            animation: floatOrb2 16s ease-in-out infinite;
+        }
+
+        @keyframes floatOrb1 {
+            0%,100% { transform: translate(0,0); }
+            50% { transform: translate(60px, 80px); }
+        }
+        @keyframes floatOrb2 {
+            0%,100% { transform: translate(0,0); }
+            50% { transform: translate(-80px, -60px); }
+        }
+
+        .grid-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background-image:
+                linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridShift 22s linear infinite;
+        }
+        @keyframes gridShift {
+            0% { transform: perspective(500px) rotateX(5deg) translateY(0); }
+            100% { transform: perspective(500px) rotateX(5deg) translateY(50px); }
+        }
+
+        /* ── Main wrapper ── */
+        .signup-wrapper {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 600px;
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px) scale(0.97); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* ── Brand ── */
+        .brand {
+            text-align: center;
+            margin-bottom: 28px;
+            animation: slideUp 0.8s 0.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .brand-name {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #00e5ff 0%, #7c4dff 50%, #00bfa5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .brand-tagline {
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 300;
+            margin-top: 4px;
+        }
+
+        /* ── Glass card ── */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px 40px 36px;
+            position: relative;
+            overflow: hidden;
+            box-shadow:
+                0 8px 32px rgba(0,0,0,0.4),
+                0 0 0 1px rgba(255,255,255,0.05) inset,
+                var(--glow),
+                var(--glow2);
+            animation: slideUp 0.8s 0.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+            transform-style: preserve-3d;
+            transition: transform 0.12s ease;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 10%; right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0,229,255,0.6), rgba(124,77,255,0.6), transparent);
+            animation: shimmerLine 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmerLine {
+            0%,100% { opacity: 0.4; transform: scaleX(0.8); }
+            50%      { opacity: 1;   transform: scaleX(1); }
+        }
+
+        .glass-card::after {
+            content: '';
+            position: absolute;
+            top: -100%; left: -60%;
+            width: 40%; height: 300%;
+            background: linear-gradient(105deg, transparent, rgba(255,255,255,0.03), transparent);
+            transform: skewX(-20deg);
+            animation: sweepLight 7s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes sweepLight {
+            0%    { left: -60%; opacity: 0; }
+            10%   { opacity: 1; }
+            40%   { left: 120%; opacity: 0; }
+            100%  { left: 120%; opacity: 0; }
+        }
+
+        /* ── Section heading ── */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .section-header-line {
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .section-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent2);
+            white-space: nowrap;
+        }
+
+        /* ── Step badges ── */
+        .step-group { margin-bottom: 32px; }
+
+        .step-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .step-badge {
+            width: 22px; height: 22px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: #040b14;
+            flex-shrink: 0;
+            box-shadow: 0 0 10px rgba(0,229,255,0.3);
+        }
+
+        .step-name {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        /* ── Form fields ── */
+        .field-row { margin-bottom: 18px; }
+
+        .field-label {
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 7px;
+            display: block;
+        }
+
+        .input-wrapper { position: relative; }
+
+        .input-icon {
+            position: absolute;
+            left: 14px; top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+            transition: color 0.3s;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .form-control, .form-select {
+            background: rgba(0,0,0,0.3) !important;
+            border: 1px solid rgba(255,255,255,0.1) !important;
+            border-radius: 12px !important;
+            color: var(--text) !important;
+            font-family: 'Exo 2', sans-serif;
+            font-size: 0.9rem;
+            padding: 11px 16px 11px 44px !important;
+            height: auto !important;
+            transition: all 0.3s ease !important;
+            backdrop-filter: blur(8px);
+            width: 100%;
+        }
+
+        .form-select { cursor: pointer; -webkit-appearance: none; }
+        .form-control::placeholder { color: rgba(224,247,250,0.2); font-weight: 300; }
+
+        .form-control:focus, .form-select:focus {
+            background: rgba(0,229,255,0.05) !important;
+            border-color: var(--accent) !important;
+            box-shadow: 0 0 0 3px rgba(0,229,255,0.1), 0 0 20px rgba(0,229,255,0.12) !important;
+            outline: none !important;
+            color: #fff !important;
+        }
+
+        .input-wrapper:focus-within .input-icon { color: var(--accent); }
+
+        /* File input special */
+        .file-input-wrapper { position: relative; }
+
+        .file-input-display {
+            background: rgba(0,0,0,0.3);
+            border: 1px dashed rgba(0,229,255,0.25);
+            border-radius: 12px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .file-input-display:hover {
+            border-color: rgba(0,229,255,0.5);
+            background: rgba(0,229,255,0.04);
+        }
+        .file-input-display svg { color: var(--accent); flex-shrink: 0; }
+
+        .file-placeholder { font-size: 0.82rem; color: rgba(224,247,250,0.3); font-weight: 300; }
+        .file-name { font-size: 0.82rem; color: var(--accent3); }
+
+        input[type="file"] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        /* Two-column grid */
+        .fields-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 20px;
+        }
+
+        @media (max-width: 500px) {
+            .fields-grid { grid-template-columns: 1fr; }
+            .glass-card { padding: 28px 20px; }
+        }
+
+        /* Plan cards */
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        @media (max-width: 500px) { .plan-grid { grid-template-columns: 1fr; } }
+
+        .plan-card {
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px;
+            padding: 16px 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .plan-card input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+        .plan-card:hover { border-color: rgba(0,229,255,0.3); background: rgba(0,229,255,0.04); }
+        .plan-card.selected {
+            border-color: var(--accent);
+            background: rgba(0,229,255,0.08);
+            box-shadow: 0 0 20px rgba(0,229,255,0.15);
+        }
+        .plan-card.selected::before {
+            content: '✓';
+            position: absolute;
+            top: 8px; right: 10px;
+            font-size: 0.65rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .plan-duration { font-family: 'Rajdhani', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text); letter-spacing: 1px; }
+        .plan-price { font-size: 1.3rem; font-weight: 600; color: var(--accent); font-family: 'Rajdhani', sans-serif; margin-top: 4px; }
+        .plan-per { font-size: 0.65rem; color: var(--muted); letter-spacing: 1px; }
+
+        .plan-badge {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 0.58rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .badge-popular { background: rgba(0,229,255,0.15); color: var(--accent); border: 1px solid rgba(0,229,255,0.3); }
+        .badge-best { background: rgba(0,191,165,0.15); color: var(--accent3); border: 1px solid rgba(0,191,165,0.3); }
+
+        /* Hidden select for form submission */
+        #plan-hidden { display: none; }
+
+        /* ── Submit button ── */
+        .btn-register {
+            width: 100%;
+            padding: 15px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #040b14;
+            background: linear-gradient(135deg, #00e5ff, #7c4dff);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+            box-shadow: 0 4px 24px rgba(0,229,255,0.3), 0 0 0 1px rgba(0,229,255,0.2);
+        }
+        .btn-register:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+        .btn-register::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #7c4dff, #00e5ff);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .btn-register:hover::before { opacity: 1; }
+        .btn-register:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,229,255,0.4), 0 0 0 1px rgba(0,229,255,0.4); }
+        .btn-register:active { transform: translateY(0); }
+
+        .btn-register span { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 8px; }
+
+        .btn-register .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: scale(0);
+            animation: rippleEffect 0.6s linear;
+            pointer-events: none;
+        }
+        @keyframes rippleEffect { to { transform: scale(4); opacity: 0; } }
+
+        /* ── Footer links ── */
+        .form-footer { text-align: center; margin-top: 22px; }
+        .footer-text { font-size: 0.72rem; color: var(--muted); letter-spacing: 1px; }
+        .footer-link { color: var(--accent); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        .footer-link:hover { color: var(--accent3); text-decoration: none; }
+
+        /* ── Status bar ── */
+        .status-bar { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 18px; }
+        .dot {
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: var(--accent3);
+            box-shadow: 0 0 8px var(--accent3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        .dot:nth-child(2) { animation-delay: 0.3s; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+        .dot:nth-child(3) { animation-delay: 0.6s; background: var(--accent2); box-shadow: 0 0 8px var(--accent2); }
+        @keyframes pulse { 0%,100% { transform: scale(1); opacity: 0.6; } 50% { transform: scale(1.4); opacity: 1; } }
+        .status-text { font-size: 0.58rem; letter-spacing: 2px; color: rgba(255,255,255,0.18); text-transform: uppercase; }
+
+        /* Password strength */
+        .strength-bar { height: 3px; border-radius: 2px; background: rgba(255,255,255,0.08); margin-top: 6px; overflow: hidden; }
+        .strength-fill { height: 100%; width: 0%; border-radius: 2px; transition: width 0.4s; }
+
+        /* ── Validation UI ── */
+        .error-text {
+            margin-top: 8px;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            color: #ff6b6b;
+            display: none;
+        }
+        .is-invalid { border-color: rgba(255,107,107,0.7) !important; box-shadow: 0 0 0 3px rgba(255,107,107,0.12) !important; }
+        .is-valid { border-color: rgba(0,191,165,0.6) !important; box-shadow: 0 0 0 3px rgba(0,191,165,0.10) !important; }
+
+        /* Eye button for password */
+        .toggle-eye {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            padding: 6px;
+            cursor: pointer;
+            color: rgba(224,247,250,0.55);
+            z-index: 3;
+            outline: none;
+        }
+        .toggle-eye:hover { color: var(--accent); }
+
+        /* make space for eye in password input */
+        .password-input { padding-right: 44px !important; }
+    </style>
+</head>
+<body>
+    <div class="bg-canvas"></div>
+    <div class="grid-bg"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <div class="signup-wrapper">
+        <div class="brand">
+            <div class="brand-name">ServiQ</div>
+            <div class="brand-tagline">Business Registration</div>
+        </div>
+
+        <div class="glass-card" id="glassCard">
+            <div class="section-header">
+                <div class="section-header-line"></div>
+                <span class="section-title">New Business Account</span>
+                <div class="section-header-line"></div>
+            </div>
+
+            <form action="/myapp/businesssignup_post/" method="post" enctype="multipart/form-data" id="signupForm" novalidate>
+                {% csrf_token %}
+
+                <!-- Step 1: Business Info -->
+                <div class="step-group">
+                    <div class="step-label">
+                        <div class="step-badge">1</div>
+                        <span class="step-name">Business Identity</span>
+                    </div>
+
+                    <div class="fields-grid">
+                        <div class="field-row">
+                            <label class="field-label">Full Name</label>
+                            <div class="input-wrapper">
+                                <input type="text" name="name" class="form-control" id="nameInput" placeholder="Business name" required>
+                                <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                                </svg>
+                            </div>
+                            <div id="nameError" class="error-text"></div>
+                        </div>
+
+                        <div class="field-row">
+                            <label class="field-label">Established Year</label>
+                            <div class="input-wrapper">
+                                <input type="number" name="established_year" class="form-control" id="yearInput" placeholder="YYYY" min="1900" max="2100" required>
+                                <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                                </svg>
+                            </div>
+                            <div id="yearError" class="error-text"></div>
+                        </div>
+
+                        <div class="field-row">
+                            <label class="field-label">Licence Number</label>
+                            <div class="input-wrapper">
+                                <input type="text" name="liscence_number" class="form-control" id="licenceInput" placeholder="LIC-XXXXXXXX" required>
+                                <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+                                </svg>
+                            </div>
+                            <div id="licenceError" class="error-text"></div>
+                        </div>
+
+                        <div class="field-row">
+                            <label class="field-label">Pincode</label>
+                            <div class="input-wrapper">
+                                <input type="text" name="pincode" class="form-control" id="pincodeInput" placeholder="000000" maxlength="6" required>
+                                <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <div id="pincodeError" class="error-text"></div>
+                        </div>
+                    </div>
+
+                    <div class="field-row">
+                        <label class="field-label">Business Logo</label>
+                        <div class="file-input-wrapper">
+                            <div class="file-input-display" id="fileDisplay">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                                </svg>
+                                <span class="file-placeholder" id="filePlaceholder">Click to upload logo image…</span>
+                            </div>
+                            <input type="file" name="image" id="logoInput" accept="image/*" required>
+                        </div>
+                        <div id="logoError" class="error-text"></div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Contact Info -->
+                <div class="step-group">
+                    <div class="step-label">
+                        <div class="step-badge">2</div>
+                        <span class="step-name">Contact Details</span>
+                    </div>
+
+                    <div class="fields-grid">
+                        <div class="field-row">
+                            <label class="field-label">Email Address</label>
+                            <div class="input-wrapper">
+                                <input type="email" name="email" class="form-control" id="emailInput" placeholder="you@business.com" required>
+                                <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div id="emailError" class="error-text"></div>
+                        </div>
+
+                        <div class="field-row">
+                            <label class="field-label">Mobile Number</label>
+                            <div class="input-wrapper">
+                                <input type="text" name="mobile_number" class="form-control" id="mobileInput" placeholder="+91 00000 00000" required>
+                                <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.12 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <div id="mobileError" class="error-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Subscription -->
+
+
+                <div class="step-group">
+    <div class="step-label">
+        <div class="step-badge">3</div>
+        <span class="step-name">Subscription Plan</span>
+    </div>
+
+    <div class="plan-grid">
+        {% for sub in subscriptions %}
+            <label class="plan-card" id="plan-{{ sub.id }}">
+                <input type="radio" name="plan_radio" value="{{ sub.id }}"
+                       data-plan-id="{{ sub.id }}"
+                       data-plan-name="{{ sub.plan_type }}"
+                       data-amount="{{ sub.amount }}">
+                <div class="plan-duration">{{ sub.plan_type }}</div>
+                <div class="plan-price">₹{{ sub.amount }}</div>
+                <div class="plan-per">
+                    {% if 'Month' in sub.plan_type %}
+                        {% with amount=sub.amount|floatformat:0 %}
+                            {% if '1 Month' in sub.plan_type %}
+                                ₹{{ amount }}/mo
+                            {% elif '3 Month' in sub.plan_type %}
+                                {% widthratio sub.amount 3 1 as monthly_rate %}
+                                ₹{{ monthly_rate }}/mo
+                            {% elif '6 Month' in sub.plan_type %}
+                                {% widthratio sub.amount 6 1 as monthly_rate %}
+                                ₹{{ monthly_rate }}/mo
+                            {% elif '1 Year' in sub.plan_type or '12 Month' in sub.plan_type %}
+                                {% widthratio sub.amount 12 1 as monthly_rate %}
+                                ₹{{ monthly_rate }}/mo
+                            {% endif %}
+                        {% endwith %}
+                    {% endif %}
+                </div>
+
+                <!-- Add badges based on position or plan type -->
+                {% if forloop.counter == 2 or '3 Month' in sub.plan_type %}
+                    <div class="plan-badge badge-popular">Popular</div>
+                {% elif forloop.counter == 3 or '1 Year' in sub.plan_type or '12 Month' in sub.plan_type %}
+                    <div class="plan-badge badge-best">Best Value</div>
+                {% endif %}
+            </label>
+        {% empty %}
+            <p>No subscription plans available. Please contact administrator.</p>
+        {% endfor %}
+    </div>
+
+    <select name="plan" id="plan-hidden" required>
+        <option value="">-- Select Plan --</option>
+        {% for sub in subscriptions %}
+            <option value="{{ sub.id }}" data-amount="{{ sub.amount }}">
+                {{ sub.plan_type }} - ₹{{ sub.amount }}
+            </option>
+        {% endfor %}
+    </select>
+    <div id="planError" class="error-text"></div>
+</div>
+
+{#                <div class="step-group">#}
+{#                    <div class="step-label">#}
+{#                        <div class="step-badge">3</div>#}
+{#                        <span class="step-name">Subscription Plan</span>#}
+{#                    </div>#}
+{##}
+{#                    <div class="plan-grid">#}
+{#                        <label class="plan-card" id="plan-1month">#}
+{#                            <input type="radio" name="plan_radio" value="1_month">#}
+{#                            <div class="plan-duration">1 Month</div>#}
+{#                            <div class="plan-price">₹500</div>#}
+{#                            <div class="plan-per">per month</div>#}
+{#                        </label>#}
+{##}
+{#                        <label class="plan-card" id="plan-3month">#}
+{#                            <input type="radio" name="plan_radio" value="3_month">#}
+{#                            <div class="plan-duration">3 Months</div>#}
+{#                            <div class="plan-price">₹1200</div>#}
+{#                            <div class="plan-per">₹400/mo</div>#}
+{#                            <div class="plan-badge badge-popular">Popular</div>#}
+{#                        </label>#}
+{##}
+{#                        <label class="plan-card" id="plan-1year">#}
+{#                            <input type="radio" name="plan_radio" value="1_year">#}
+{#                            <div class="plan-duration">1 Year</div>#}
+{#                            <div class="plan-price">₹4000</div>#}
+{#                            <div class="plan-per">₹333/mo</div>#}
+{#                            <div class="plan-badge badge-best">Best Value</div>#}
+{#                        </label>#}
+{#                    </div>#}
+{##}
+{#                    <select name="plan" id="plan-hidden" required>#}
+{#                        <option value="">-- Select Plan --</option>#}
+{#                        <option value="1_month">1 Month - ₹500</option>#}
+{#                        <option value="3_month">3 Months - ₹1200</option>#}
+{#                        <option value="1_year">1 Year - ₹4000</option>#}
+{#                    </select>#}
+{#                    <div id="planError" class="error-text"></div>#}
+{#                </div>#}
+
+                <!-- Step 4: Security -->
+                <div class="step-group">
+                    <div class="step-label">
+                        <div class="step-badge">4</div>
+                        <span class="step-name">Account Security</span>
+                    </div>
+
+                    <div class="field-row">
+                        <label class="field-label">Password</label>
+                        <div class="input-wrapper">
+                            <input type="password" name="password" class="form-control password-input" id="passwordInput" placeholder="Create a strong password" required>
+                            <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+
+                            <button type="button" class="toggle-eye" id="togglePasswordBtn" aria-label="Show/Hide password">
+                                <svg id="eyeOpen" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                                <svg id="eyeClosed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+                                    <path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-6.5 0-10-7-10-7a21.77 21.77 0 0 1 5.06-6.94"/>
+                                    <path d="M1 1l22 22"/>
+                                    <path d="M9.9 4.24A10.94 10.94 0 0 1 12 5c6.5 0 10 7 10 7a21.86 21.86 0 0 1-4.19 5.31"/>
+                                    <path d="M14.12 14.12A3 3 0 0 1 9.88 9.88"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="strength-bar"><div class="strength-fill" id="strengthFill"></div></div>
+                        <div id="passwordError" class="error-text"></div>
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="btn-register" id="submitBtn" disabled>
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                        </svg>
+                        Proceed to Payment
+                    </span>
+                </button>
+            </form>
+
+            <div class="form-footer">
+                <span class="footer-text">Already registered? <a href="/myapp/login_get/" class="footer-link">Sign In</a></span>
+            </div>
+
+            <div class="status-bar">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <span class="status-text">Secure Registration</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // ─────────────────────────────────────────────────────────────
+        // UI helpers (errors + valid/invalid)
+        // ─────────────────────────────────────────────────────────────
+        function showError(input, errorEl, message) {
+            errorEl.textContent = message;
+            errorEl.style.display = 'block';
+            input.classList.add('is-invalid');
+            input.classList.remove('is-valid');
+        }
+        function showValid(input, errorEl) {
+            errorEl.textContent = '';
+            errorEl.style.display = 'none';
+            input.classList.remove('is-invalid');
+            input.classList.add('is-valid');
+        }
+        function clearState(input, errorEl) {
+            errorEl.textContent = '';
+            errorEl.style.display = 'none';
+            input.classList.remove('is-invalid');
+            input.classList.remove('is-valid');
+        }
+
+        // ─────────────────────────────────────────────────────────────
+        // Plan card selection
+        // ─────────────────────────────────────────────────────────────
+        const planCards = document.querySelectorAll('.plan-card');
+        const planHidden = document.getElementById('plan-hidden');
+        const planError = document.getElementById('planError');
+
+        planCards.forEach(card => {
+            card.addEventListener('click', () => {
+                planCards.forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                planHidden.value = card.querySelector('input[type="radio"]').value;
+                planError.style.display = 'none';
+                planError.textContent = '';
+                updateSubmitState();
+            });
+        });
+
+        // ─────────────────────────────────────────────────────────────
+        // File upload display
+        // ─────────────────────────────────────────────────────────────
+        const logoInput = document.getElementById('logoInput');
+        const logoError = document.getElementById('logoError');
+        const filePlaceholder = document.getElementById('filePlaceholder');
+
+        logoInput.addEventListener('change', function() {
+            const name = this.files[0] ? this.files[0].name : null;
+            if (name) {
+                filePlaceholder.textContent = name;
+                filePlaceholder.classList.add('file-name');
+                filePlaceholder.classList.remove('file-placeholder');
+                showValid(logoInput, logoError);
+            } else {
+                filePlaceholder.textContent = 'Click to upload logo image…';
+                filePlaceholder.classList.add('file-placeholder');
+                filePlaceholder.classList.remove('file-name');
+                showError(logoInput, logoError, 'Business logo is required.');
+            }
+            updateSubmitState();
+        });
+
+        // ─────────────────────────────────────────────────────────────
+        // Password strength bar
+        // ─────────────────────────────────────────────────────────────
+        const passwordInput = document.getElementById('passwordInput');
+        const strengthFill = document.getElementById('strengthFill');
+
+        passwordInput.addEventListener('input', function() {
+            const val = this.value;
+            let strength = 0;
+            if (val.length >= 8) strength++;
+            if (/[A-Z]/.test(val)) strength++;
+            if (/[a-z]/.test(val)) strength++;
+            if (/[0-9]/.test(val)) strength++;
+            if (/[^A-Za-z0-9]/.test(val)) strength++;
+
+            const widths  = [0, 20, 40, 60, 80, 100];
+            strengthFill.style.width = widths[strength] + '%';
+            strengthFill.style.background = 'rgba(0,229,255,0.75)';
+            strengthFill.style.opacity = (0.2 + strength * 0.15).toString();
+        });
+
+        // Ripple effect (only if enabled)
+        document.getElementById('submitBtn').addEventListener('click', function(e) {
+            if (this.disabled) return;
+            const btn = this;
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+            const size = Math.max(btn.offsetWidth, btn.offsetHeight);
+            const rect = btn.getBoundingClientRect();
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = (e.clientX - rect.left - size/2) + 'px';
+            ripple.style.top  = (e.clientY - rect.top  - size/2) + 'px';
+            btn.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        });
+
+        // 3D tilt
+        const card = document.getElementById('glassCard');
+        document.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            const dx = (e.clientX - cx) / (window.innerWidth / 2);
+            const dy = (e.clientY - cy) / (window.innerHeight / 2);
+            card.style.transform = `perspective(1000px) rotateY(${dx * 4}deg) rotateX(${-dy * 2}deg)`;
+        });
+        document.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
+        });
+
+        // ─────────────────────────────────────────────────────────────
+        // VALIDATION: make EVERY field required before submit
+        // ─────────────────────────────────────────────────────────────
+        const form = document.getElementById('signupForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        const nameInput = document.getElementById('nameInput');
+        const yearInput = document.getElementById('yearInput');
+        const licenceInput = document.getElementById('licenceInput');
+        const pincodeInput = document.getElementById('pincodeInput');
+        const emailInput = document.getElementById('emailInput');
+        const mobileInput = document.getElementById('mobileInput');
+
+        const nameError = document.getElementById('nameError');
+        const yearError = document.getElementById('yearError');
+        const licenceError = document.getElementById('licenceError');
+        const pincodeError = document.getElementById('pincodeError');
+        const emailError = document.getElementById('emailError');
+        const mobileError = document.getElementById('mobileError');
+        const passwordError = document.getElementById('passwordError');
+
+        // Regex rules
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^(?:\+?91[\s-]?)?[6-9]\d{9}$/;   // India
+        const pincodeRegex = /^\d{6}$/;                     // 6 digits
+        const passwordPolicyRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
+
+        function normalizePhone(raw) {
+            return (raw || '').replace(/\s|-/g, '');
+        }
+
+        function validateRequiredText(input, errorEl, labelName) {
+            const val = (input.value || '').trim();
+            if (!val) {
+                showError(input, errorEl, `${labelName} is required.`);
+                return false;
+            }
+            showValid(input, errorEl);
+            return true;
+        }
+
+        function validateYear() {
+            const val = (yearInput.value || '').trim();
+            if (!val) {
+                showError(yearInput, yearError, 'Established year is required.');
+                return false;
+            }
+            const year = parseInt(val, 10);
+            if (Number.isNaN(year) || year < 1900 || year > 2100) {
+                showError(yearInput, yearError, 'Enter a valid year (1900 - 2100).');
+                return false;
+            }
+            showValid(yearInput, yearError);
+            return true;
+        }
+
+        function validatePincode() {
+            const val = (pincodeInput.value || '').trim();
+            if (!val) {
+                showError(pincodeInput, pincodeError, 'Pincode is required.');
+                return false;
+            }
+            if (!pincodeRegex.test(val)) {
+                showError(pincodeInput, pincodeError, 'Pincode must be 6 digits.');
+                return false;
+            }
+            showValid(pincodeInput, pincodeError);
+            return true;
+        }
+
+        function validateEmail() {
+            const val = (emailInput.value || '').trim();
+            if (!val) {
+                showError(emailInput, emailError, 'Email is required.');
+                return false;
+            }
+            if (!emailRegex.test(val)) {
+                showError(emailInput, emailError, 'Please enter a valid email address.');
+                return false;
+            }
+            showValid(emailInput, emailError);
+            return true;
+        }
+
+        function validatePhone() {
+            const raw = (mobileInput.value || '').trim();
+            if (!raw) {
+                showError(mobileInput, mobileError, 'Mobile number is required.');
+                return false;
+            }
+            const val = normalizePhone(raw);
+            if (!phoneRegex.test(val)) {
+                showError(mobileInput, mobileError, 'Enter a valid mobile number (10 digits or +91).');
+                return false;
+            }
+            showValid(mobileInput, mobileError);
+            return true;
+        }
+
+        function validateLogo() {
+            if (!logoInput.files || logoInput.files.length === 0) {
+                showError(logoInput, logoError, 'Business logo is required.');
+                return false;
+            }
+            showValid(logoInput, logoError);
+            return true;
+        }
+
+        function validatePlan() {
+            if (!planHidden.value) {
+                planError.textContent = 'Please select a subscription plan.';
+                planError.style.display = 'block';
+                return false;
+            }
+            planError.textContent = '';
+            planError.style.display = 'none';
+            return true;
+        }
+
+        function validatePassword() {
+            const val = passwordInput.value || '';
+            if (!val) {
+                showError(passwordInput, passwordError, 'Password is required.');
+                return false;
+            }
+            if (!passwordPolicyRegex.test(val)) {
+                // give detailed message
+                if (val.length < 8) return showError(passwordInput, passwordError, 'Password must be at least 8 characters long.'), false;
+                if (!/[A-Z]/.test(val)) return showError(passwordInput, passwordError, 'Password must include at least 1 uppercase letter.'), false;
+                if (!/[a-z]/.test(val)) return showError(passwordInput, passwordError, 'Password must include at least 1 lowercase letter.'), false;
+                if (!/\d/.test(val)) return showError(passwordInput, passwordError, 'Password must include at least 1 number.'), false;
+                if (!/[^A-Za-z0-9]/.test(val)) return showError(passwordInput, passwordError, 'Password must include at least 1 special character.'), false;
+
+                showError(passwordInput, passwordError, 'Password does not meet the required policy.');
+                return false;
+            }
+            showValid(passwordInput, passwordError);
+            return true;
+        }
+
+        // Enable button only when ALL are valid
+        function updateSubmitState() {
+            const ok =
+                validateRequiredText(nameInput, nameError, 'Full name') &&
+                validateYear() &&
+                validateRequiredText(licenceInput, licenceError, 'Licence number') &&
+                validatePincode() &&
+                validateLogo() &&
+                validateEmail() &&
+                validatePhone() &&
+                validatePlan() &&
+                validatePassword();
+
+            submitBtn.disabled = !ok;
+            return ok;
+        }
+
+        // Live checks
+        nameInput.addEventListener('input', () => { if (!nameInput.value) clearState(nameInput, nameError); else validateRequiredText(nameInput, nameError, 'Full name'); updateSubmitState(); });
+        yearInput.addEventListener('input', () => { if (!yearInput.value) clearState(yearInput, yearError); else validateYear(); updateSubmitState(); });
+        licenceInput.addEventListener('input', () => { if (!licenceInput.value) clearState(licenceInput, licenceError); else validateRequiredText(licenceInput, licenceError, 'Licence number'); updateSubmitState(); });
+
+        pincodeInput.addEventListener('input', () => {
+            pincodeInput.value = pincodeInput.value.replace(/\D/g, '').slice(0, 6);
+            if (!pincodeInput.value) clearState(pincodeInput, pincodeError);
+            else validatePincode();
+            updateSubmitState();
+        });
+
+        emailInput.addEventListener('input', () => { if (!emailInput.value) clearState(emailInput, emailError); else validateEmail(); updateSubmitState(); });
+
+        mobileInput.addEventListener('input', () => {
+            mobileInput.value = mobileInput.value.replace(/[^0-9+\s-]/g, '');
+            if (!mobileInput.value) clearState(mobileInput, mobileError);
+            else validatePhone();
+            updateSubmitState();
+        });
+
+        passwordInput.addEventListener('input', () => { if (!passwordInput.value) clearState(passwordInput, passwordError); else validatePassword(); updateSubmitState(); });
+
+        planHidden.addEventListener('change', updateSubmitState);
+
+        // Submit final gate (in case user bypasses disabled button)
+        form.addEventListener('submit', function (e) {
+            const ok = updateSubmitState();
+            if (!ok) e.preventDefault();
+        });
+
+        // Eye toggle
+        const toggleBtn = document.getElementById('togglePasswordBtn');
+        const eyeOpen = document.getElementById('eyeOpen');
+        const eyeClosed = document.getElementById('eyeClosed');
+
+        toggleBtn.addEventListener('click', function () {
+            const isHidden = passwordInput.type === 'password';
+            passwordInput.type = isHidden ? 'text' : 'password';
+            eyeOpen.style.display = isHidden ? 'none' : 'block';
+            eyeClosed.style.display = isHidden ? 'block' : 'none';
+        });
+
+
+            // Add this to your existing JavaScript file
+document.addEventListener('DOMContentLoaded', function() {
+    const planRadios = document.querySelectorAll('input[name="plan_radio"]');
+    const planSelect = document.getElementById('plan-hidden');
+
+    // Update hidden select when radio is clicked
+    planRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            if (this.checked) {
+                const planId = this.getAttribute('data-plan-id');
+                // Find and select the corresponding option in hidden select
+                for (let option of planSelect.options) {
+                    if (option.value == planId) {
+                        option.selected = true;
+                        break;
+                    }
+                }
+            }
+        });
+    });
+
+    // Update radio when select is changed
+    planSelect.addEventListener('change', function() {
+        const selectedValue = this.value;
+        if (selectedValue) {
+            planRadios.forEach(radio => {
+                if (radio.value == selectedValue) {
+                    radio.checked = true;
+                }
+            });
+        }
+    });
+});
+        // Initial state
+        updateSubmitState();
+    </script>
+</body>
+</html>

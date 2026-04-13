@@ -1,0 +1,310 @@
+{#{% extends 'business/business_home.html' %}#}
+{#{% block body %}#}
+{##}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>Login Page</title>#}
+{#    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">#}
+{#   #}
+{#</head>#}
+{#<body>#}
+{#    <div class="container">#}
+{#        <div class="row justify-content-center">#}
+{#            <div class="col-md-6">#}
+{#                <h2 class="text-center">Edit Service Station</h2>#}
+{#                <form action="/myapp/edit_servicestation_post/" method="post" enctype="multipart/form-data">#}
+{#                    {% csrf_token %}#}
+{#                    <input type="hidden" name="id" value="{{ data.id }}">#}
+{#                   <div class="form-group">#}
+{#                        <label for="username">Name</label>#}
+{#                        <input type="text" class="form-control" name="name" value="{{ data.name }}" id="username"  required>#}
+{#                    </div>#}
+{##}
+{#                      <div class="form-group">#}
+{#                        <label for="username">E-mail</label>#}
+{#                        <input type="email" class="form-control" name="email" value="{{ data.email }}" id="username"  required>#}
+{#                    </div>#}
+{##}
+{#                      <div class="form-group">#}
+{#                        <label for="username">Mobile Number</label>#}
+{#                        <input type="number" class="form-control" name="mobile_number" value="{{ data.mobile_number }}" id="username"  required>#}
+{#                    </div>#}
+{##}
+{#                      <div class="form-group">#}
+{#                        <label for="username">City</label>#}
+{#                        <input type="text" class="form-control" name="city" value="{{ data.city }}" id="username"  required>#}
+{#                    </div>#}
+{##}
+{#                      <div class="form-group">#}
+{#                        <label for="username">State</label>#}
+{#                        <input type="text" class="form-control" name="state" value="{{ data.state }}" id="username"  required>#}
+{#                    </div>#}
+{##}
+{#                      <div class="form-group">#}
+{#                        <label for="username">Latitude</label>#}
+{#                        <input type="text" class="form-control" name="latitude" value="{{ data.latitude }}" id="username">#}
+{#                    </div>#}
+{##}
+{#                      <div class="form-group">#}
+{#                        <label for="username">Longitude</label>#}
+{#                        <input type="text" class="form-control" name="longitude" value="{{ data.longitude }}" id="username">#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group">#}
+{#                        <label for="text">Photo</label>#}
+{#                        <img src="{{ data.photo }}" height="100" width="100">#}
+{#                        <input type="file" class="form-control" name="photo" value="{{ data.photo }}" id="password">#}
+{#                    </div>#}
+{##}
+{#                    <button type="submit" class="btn btn-primary btn-block">Edit</button>#}
+{#                </form>#}
+{##}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>#}
+{#    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>#}
+{#    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>#}
+{#</body>#}
+{#</html>#}
+{##}
+{#{% endblock %}#}
+
+
+
+{#--------------with google map-----------------#}
+
+{% extends 'business/business_home.html' %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edit Service Station</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<style>
+.error-text{
+color:#dc3545;
+font-size:0.9rem;
+margin-top:6px;
+display:none;
+}
+
+.is-invalid{border-color:#dc3545 !important;}
+.is-valid{border-color:#28a745 !important;}
+
+#mapBox{
+width:100%;
+height:320px;
+border:1px solid rgba(0,0,0,0.15);
+border-radius:8px;
+overflow:hidden;
+margin-top:10px;
+background:#f8f9fa;
+}
+
+.map-actions{
+display:flex;
+gap:10px;
+margin-top:10px;
+flex-wrap:wrap;
+}
+
+.map-note{
+font-size:0.85rem;
+color:#6c757d;
+margin-top:6px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-md-6">
+
+<h2 class="text-center">Edit Service Station</h2>
+
+<form id="stationForm" action="/myapp/edit_servicestation_post/" method="post" enctype="multipart/form-data" novalidate>
+
+{% csrf_token %}
+<input type="hidden" name="id" value="{{ data.id }}">
+
+<div class="form-group">
+<label>Name</label>
+<input type="text" class="form-control" name="name" id="stationName" value="{{ data.name }}" required>
+<div id="nameError" class="error-text"></div>
+</div>
+
+<div class="form-group">
+<label>E-mail</label>
+<input type="email" class="form-control" name="email" id="email" value="{{ data.email }}" required>
+<div id="emailError" class="error-text"></div>
+</div>
+
+<div class="form-group">
+<label>Mobile Number</label>
+<input type="text" class="form-control" name="mobile_number" id="mobile" value="{{ data.mobile_number }}" required>
+<div id="mobileError" class="error-text"></div>
+</div>
+
+<div class="form-group">
+<label>City</label>
+<input type="text" class="form-control" name="city" id="city" value="{{ data.city }}" required>
+<div id="cityError" class="error-text"></div>
+</div>
+
+<div class="form-group">
+<label>State</label>
+<input type="text" class="form-control" name="state" id="state" value="{{ data.state }}" required>
+<div id="stateError" class="error-text"></div>
+</div>
+
+<!-- MAP -->
+<div class="form-group">
+
+<label>Choose Location</label>
+
+<div class="map-actions">
+<button type="button" class="btn btn-outline-primary btn-sm" id="useLocation">
+Use My Location
+</button>
+
+<button type="button" class="btn btn-outline-secondary btn-sm" id="refreshMap">
+Refresh Map
+</button>
+</div>
+
+<div class="map-note">
+Click "Use My Location" to automatically fill latitude and longitude.
+</div>
+
+<div id="mapBox">
+<iframe
+id="mapFrame"
+width="100%"
+height="100%"
+frameborder="0">
+</iframe>
+</div>
+
+</div>
+
+<div class="form-group">
+<label>Latitude</label>
+<input type="text" class="form-control" name="latitude" id="latitude" value="{{ data.latitude }}" required>
+<div id="latError" class="error-text"></div>
+</div>
+
+<div class="form-group">
+<label>Longitude</label>
+<input type="text" class="form-control" name="longitude" id="longitude" value="{{ data.longitude }}" required>
+<div id="lngError" class="error-text"></div>
+</div>
+
+<div class="form-group">
+<label>Photo</label><br>
+<img src="{{ data.photo }}" height="100" width="100"><br><br>
+<input type="file" class="form-control" name="photo" id="photo">
+</div>
+
+<button type="submit" class="btn btn-primary btn-block">Edit</button>
+
+</form>
+
+</div>
+</div>
+</div>
+
+
+<script>
+
+(function(){
+
+const latitude=document.getElementById("latitude");
+const longitude=document.getElementById("longitude");
+
+const mapFrame=document.getElementById("mapFrame");
+
+function updateMap(lat,lng){
+
+const delta=0.01;
+
+const left=(lng-delta).toFixed(6);
+const right=(lng+delta).toFixed(6);
+const top=(lat+delta).toFixed(6);
+const bottom=(lat-delta).toFixed(6);
+
+const src=`https://www.openstreetmap.org/export/embed.html?bbox=${left}%2C${bottom}%2C${right}%2C${top}&layer=mapnik&marker=${lat}%2C${lng}`;
+
+mapFrame.src=src;
+
+}
+
+function refreshMap(){
+
+const lat=parseFloat(latitude.value);
+const lng=parseFloat(longitude.value);
+
+if(!isNaN(lat)&&!isNaN(lng)){
+
+updateMap(lat,lng);
+
+}
+
+}
+
+document.getElementById("refreshMap").addEventListener("click",refreshMap);
+
+document.getElementById("useLocation").addEventListener("click",function(){
+
+if(!navigator.geolocation){
+
+alert("Geolocation not supported");
+
+return;
+
+}
+
+navigator.geolocation.getCurrentPosition(function(pos){
+
+const lat=pos.coords.latitude;
+const lng=pos.coords.longitude;
+
+latitude.value=lat.toFixed(6);
+longitude.value=lng.toFixed(6);
+
+updateMap(lat,lng);
+
+});
+
+});
+
+if(latitude.value && longitude.value){
+
+updateMap(parseFloat(latitude.value),parseFloat(longitude.value));
+
+}
+
+})();
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+{% endblock %}
+
